@@ -1,0 +1,2 @@
+Der Befehl 'Xvfb' wurde nicht gefunden, kann aber installiert werden mit:
+sudo apt install xvfb
