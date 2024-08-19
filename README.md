@@ -14,3 +14,5 @@ This is the first ros project I created following the documentation of "Duckieto
 dts devel build -f
 dts devel run -R <name-of-the-robot> -L twist-control
 
+## state-estimation
+Here we track the yellow and white lines. We can see them in the simulation and with the ground_projection node we can see the relation of the duckiebot respect to the lines that it observes. Also, we tried to mix state-estimation with obtaining the odometry. For the simulation it worked, but for the real life the robot is not doing the line following (future problem to check why this happens) and if we move the robot manually, the wheels encoders error is pretty big.
