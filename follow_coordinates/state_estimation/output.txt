@@ -1,0 +1,3420 @@
+Login Succeeded
+
+Project:
+  Name: state_estimation
+  Distro: latest
+  Version: latest
+  Index: Clean
+  Semantic Version: 0.0.0
+  Path: /home/lnt/delete_state-estimation/state_estimation
+  Type: template-exercise
+  Template Version: 3
+  Adapters: fs dtproject
+________
+
+building with "default" instance using docker driver
+
+[internal] load build definition from Dockerfile
+transferring dockerfile: 32B 0.0s done
+DONE 0.1s
+
+[internal] load .dockerignore
+transferring context: 2B 0.0s done
+DONE 0.0s
+
+resolve image config for docker.io/docker/dockerfile:1.4
+...
+
+[auth] docker/dockerfile:pull token for registry-1.docker.io
+DONE 0.0s
+
+resolve image config for docker.io/docker/dockerfile:1.4
+DONE 1.9s
+
+docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84ced81e24ef1a0dbc
+CACHED
+
+[internal] load build definition from Dockerfile
+DONE 0.0s
+
+[internal] load .dockerignore
+DONE 0.0s
+
+[context meat] load .dockerignore
+transferring meat: 2B 0.1s done
+DONE 0.1s
+
+[context recipe] load .dockerignore
+transferring recipe: 35B 0.1s done
+DONE 0.1s
+
+[internal] load metadata for docker.io/duckietown/challenge-aido_lf-baseline-duckietown:daffy-arm64v8
+...
+
+[auth] duckietown/challenge-aido_lf-baseline-duckietown:pull token for registry-1.docker.io
+DONE 0.0s
+
+[internal] load metadata for docker.io/duckietown/challenge-aido_lf-baseline-duckietown:daffy-arm64v8
+DONE 1.5s
+
+[base  1/16] FROM docker.io/duckietown/challenge-aido_lf-baseline-duckietown:daffy-arm64v8@sha256:2722fb2b3d3001dbe4b24cc7402b12e6cd9d3dfbb2551815798f4d070b533c98
+DONE 0.0s
+
+[context meat] load from client
+transferring meat: 11.51kB 0.1s done
+DONE 0.1s
+
+[context recipe] load from client
+transferring recipe: 3.40kB 0.1s done
+DONE 0.1s
+
+[base  6/16] RUN dt-apt-install /code/catkin_ws/src/state-estimation/dependencies-apt.txt
+CACHED
+
+[base  7/16] COPY --from=recipe ./dependencies-py3.* /code/catkin_ws/src/state-estimation/
+CACHED
+
+[base  9/16] COPY --from=recipe ./assets /code/catkin_ws/src/state-estimation/assets
+CACHED
+
+[base 10/16] COPY --from=recipe ./packages /code/catkin_ws/src/state-estimation/packages
+CACHED
+
+[base  5/16] COPY --from=recipe ./dependencies-apt.txt /code/catkin_ws/src/state-estimation/
+CACHED
+
+[base  4/16] WORKDIR /code/catkin_ws/src/state-estimation
+CACHED
+
+[base  2/16] RUN dt-build-env-check "state-estimation" "Andrea F. Daniele (afdaniele@duckietown.com)" "State Estimation"
+CACHED
+
+[base  3/16] RUN mkdir -p "/code/catkin_ws/src/state-estimation" "/launch/state-estimation"
+CACHED
+
+[base  8/16] RUN dt-pip3-install "/code/catkin_ws/src/state-estimation/dependencies-py3.*"
+CACHED
+
+[base 11/16] COPY --from=meat ./assets/. /code/catkin_ws/src/state-estimation/assets/
+CACHED
+
+[base 12/16] COPY --from=meat ./packages/. /code/catkin_ws/src/state-estimation/packages/
+DONE 0.3s
+
+[base 13/16] RUN . /opt/ros/noetic/setup.sh &&   catkin build     --workspace /code/catkin_ws/
+3.242 ----------------------------------------------------
+3.242 Profile:                     default
+3.242 Extending:          [cached] /opt/ros/noetic
+3.242 Workspace:                   /code/catkin_ws
+3.242 ----------------------------------------------------
+3.242 Build Space:        [exists] /code/catkin_ws/build
+3.242 Devel Space:        [exists] /code/catkin_ws/devel
+3.242 Install Space:      [unused] /code/catkin_ws/install
+3.242 Log Space:          [exists] /code/catkin_ws/logs
+3.242 Source Space:       [exists] /code/catkin_ws/src
+3.242 DESTDIR:            [unused] None
+3.242 ----------------------------------------------------
+3.242 Devel Space Layout:          linked
+3.242 Install Space Layout:        None
+3.242 ----------------------------------------------------
+3.242 Additional CMake Args:       None
+3.242 Additional Make Args:        None
+3.242 Additional catkin Make Args: None
+3.242 Internal Make Job Server:    True
+3.242 Cache Job Environments:      False
+3.242 ----------------------------------------------------
+3.242 Buildlisted Packages:        None
+3.242 Skiplisted Packages:         None
+3.242 ----------------------------------------------------
+3.242 Workspace configuration appears valid.
+3.242 ----------------------------------------------------
+3.572 [build] Found 35 packages in 0.0 seconds.                                                                                                                      
+3.676 [build] Updating package table.                                                                                                                                
+3.900 Starting >>> car_interface                                                                                                                                     
+3.900 Starting >>> deadreckoning                                                                                                                                     
+3.900 Starting >>> duckietown                                                                                                                                        
+3.901 Starting >>> duckietown_demos                                                                                                                                  
+3.989 [build 0.8 s] [0/35 complete] [4/4 jobs] [11 queued] [duckietown:loadenv - 0.1]                                                                                [build 0.9 s] [0/35 complete] [4/4 jobs] [11 queued] [duckietown:loadenv - 0.2]                                                                                [build 1.0 s] [0/35 complete] [4/4 jobs] [11 queued] [duckietown:loadenv - 0.3]                                                                                [build 1.1 s] [0/35 complete] [4/4 jobs] [10 queued] [duckietown_demos:loadenv - 0.0] [duckietown:check - 0.4]                                                 [build 1.2 s] [0/35 complete] [4/4 jobs] [10 queued] [duckietown_demos:loadenv - 0.1] [duckietown:check - 0.5]                                                 [build 1.3 s] [0/35 complete] [4/4 jobs] [10 queued] [duckietown_demos:loadenv - 0.2] [duckietown:check - 0.6]                                                 [build 1.4 s] [0/35 complete] [4/4 jobs] [10 queued] [duckietown_demos:loadenv - 0.3] [duckietown:check - 0.7]                                                 [build 1.5 s] [0/35 complete] [4/4 jobs] [9 queued] [duckietown:check - 0.8] [deadreckoning:loadenv - 0.1] [duckietown_demos:check - 0.4]                      [build 1.6 s] [0/35 complete] [4/4 jobs] [10 queued] [deadreckoning:loadenv - 0.2] [duckietown:make - 0.9]                                                     [build 1.7 s] [0/35 complete] [4/4 jobs] [9 queued] [deadreckoning:loadenv - 0.3] [duckietown:make - 1.0] [duckietown_demos:make - 0.6]                        Finished <<< duckietown                             [ 1.0 seconds ]                                                                                            
+4.962 Starting >>> duckietown_msgs                                                                                                                                   
+4.983 Finished <<< duckietown_demos                       [ 0.7 seconds ]                                                                                            
+4.984 Starting >>> duckietown_protocols                                                                                                                              
+5.000 [build 1.8 s] [2/35 complete] [4/4 jobs] [9 queued] [deadreckoning:loadenv - 0.4]                                                                              [build 1.9 s] [2/35 complete] [4/4 jobs] [8 queued] [car_interface:loadenv - 0.1] [deadreckoning:check - 0.5]                                                  [build 2.0 s] [2/35 complete] [4/4 jobs] [8 queued] [car_interface:loadenv - 0.2] [deadreckoning:make - 0.6]                                                   Finished <<< deadreckoning                          [ 0.6 seconds ]                                                                                            
+5.288 Starting >>> easy_algo                                                                                                                                         
+5.302 [build 2.1 s] [3/35 complete] [4/4 jobs] [8 queued] [car_interface:loadenv - 0.3]                                                                              [build 2.2 s] [3/35 complete] [4/4 jobs] [8 queued] [car_interface:loadenv - 0.4]                                                                              [build 2.3 s] [3/35 complete] [4/4 jobs] [7 queued] [duckietown_msgs:loadenv - 0.1] [car_interface:check - 0.5]                                                [build 2.4 s] [3/35 complete] [4/4 jobs] [7 queued] [duckietown_msgs:loadenv - 0.2] [car_interface:make - 0.6]                                                 Finished <<< car_interface                          [ 0.6 seconds ]                                                                                            
+5.667 Starting >>> easy_logs                                                                                                                                         
+5.705 [build 2.5 s] [4/35 complete] [4/4 jobs] [7 queued] [duckietown_msgs:loadenv - 0.3]                                                                            [build 2.6 s] [4/35 complete] [4/4 jobs] [7 queued] [duckietown_msgs:loadenv - 0.4]                                                                            [build 2.7 s] [4/35 complete] [4/4 jobs] [6 queued] [duckietown_protocols:loadenv - 0.1] [duckietown_msgs:check - 0.5]                                         [build 2.8 s] [4/35 complete] [4/4 jobs] [6 queued] [duckietown_protocols:loadenv - 0.2] [duckietown_msgs:make - 0.6]                                          [build 2.9 s] [4/35 complete] [4/4 jobs] [6 queued] [duckietown_protocols:loadenv - 0.3] [duckietown_msgs:make - 0.7]                                          [build 3.0 s] [4/35 complete] [4/4 jobs] [6 queued] [duckietown_protocols:loadenv - 0.4] [duckietown_msgs:make - 0.8]                                          [build 3.1 s] [4/35 complete] [4/4 jobs] [5 queued] [duckietown_msgs:make - 0.9] [easy_algo:loadenv - 0.1] [duckietown_protocols:check - 0.5]                  [build 3.2 s] [4/35 complete] [4/4 jobs] [5 queued] [duckietown_msgs:make (0%) - 1.0] [easy_algo:loadenv - 0.2] [duckietown_protocols:make - 0.6]              Finished <<< duckietown_protocols                   [ 0.7 seconds ]                                                                                            
+6.514 [build 3.3 s] [5/35 complete] [4/4 jobs] [5 queued] [duckietown_msgs:make (0%) - 1.1] [easy_algo:loadenv - 0.3]                                                [build 3.4 s] [5/35 complete] [4/4 jobs] [5 queued] [duckietown_msgs:make (0%) - 1.2] [easy_algo:loadenv - 0.4]                                                [build 3.5 s] [5/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.3] [easy_logs:loadenv - 0.0] [easy_algo:check - 0.5]                        [build 3.6 s] [5/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.4] [easy_logs:loadenv - 0.1] [easy_algo:check - 0.6]                        [build 3.7 s] [5/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.5] [easy_logs:loadenv - 0.2] [easy_algo:make - 0.7]                         [build 3.8 s] [5/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.6] [easy_logs:loadenv - 0.3] [easy_algo:symlink - 0.8]                      Finished <<< easy_algo                              [ 0.8 seconds ]                                                                                            
+7.128 [build 3.9 s] [6/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.7] [easy_logs:loadenv - 0.4]                                                [build 4.0 s] [6/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.8] [easy_logs:check - 0.5]                                                  [build 4.1 s] [6/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 1.9] [easy_logs:make - 0.6]                                                   [build 4.2 s] [6/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.0] [easy_logs:make - 0.7]                                                   [build 4.3 s] [6/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.1] [easy_logs:make - 0.8]                                                   Finished <<< easy_logs                              [ 0.9 seconds ]                                                                                            
+7.637 [build 4.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.2]                                                                          [build 4.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.3]                                                                          [build 4.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.4]                                                                          [build 4.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.5]                                                                          [build 4.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.6]                                                                          [build 4.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.7]                                                                          [build 5.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.8]                                                                          [build 5.1 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 2.9]                                                                          [build 5.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.0]                                                                          [build 5.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.1]                                                                          [build 5.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.2]                                                                          [build 5.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.3]                                                                          [build 5.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.4]                                                                          [build 5.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.5]                                                                          [build 5.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.6]                                                                          [build 5.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.7]                                                                          [build 6.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.8]                                                                          [build 6.1 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 3.9]                                                                          [build 6.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.0]                                                                          [build 6.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.1]                                                                          [build 6.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.2]                                                                          [build 6.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.3]                                                                          [build 6.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.4]                                                                          [build 6.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.5]                                                                          [build 6.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.6]                                                                          [build 6.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.7]                                                                          [build 7.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.8]                                                                          [build 7.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 4.9]                                                                          [build 7.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.0]                                                                          [build 7.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.1]                                                                          [build 7.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.2]                                                                          [build 7.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.4]                                                                          [build 7.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.5]                                                                          [build 7.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.6]                                                                          [build 7.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.7]                                                                          [build 8.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.8]                                                                          [build 8.1 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 5.9]                                                                          [build 8.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.0]                                                                          [build 8.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.1]                                                                          [build 8.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.2]                                                                          [build 8.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.3]                                                                          [build 8.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.4]                                                                          [build 8.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.5]                                                                          [build 8.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.6]                                                                          [build 8.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.7]                                                                          [build 9.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.8]                                                                          [build 9.1 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 6.9]                                                                          [build 9.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.0]                                                                          [build 9.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.1]                                                                          [build 9.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.2]                                                                          [build 9.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.3]                                                                          [build 9.6 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.4]                                                                          [build 9.7 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.5]                                                                          [build 9.8 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.6]                                                                          [build 9.9 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.7]                                                                          [build 10.0 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.8]                                                                         [build 10.1 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 7.9]                                                                         [build 10.2 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 8.0]                                                                         [build 10.3 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 8.1]                                                                         [build 10.4 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 8.2]                                                                         [build 10.5 s] [7/35 complete] [4/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 8.3]                                                                         [build 10.6 s] [7/35 complete] [3/4 jobs] [4 queued] [duckietown_msgs:make (0%) - 8.4]                                                                         Starting >>> easy_regression                                                                                                                                   
+13.90 Starting >>> led_joy_mapper                                                                                                                                    
+13.95 [build 10.7 s] [7/35 complete] [3/4 jobs] [3 queued] [duckietown_msgs:make (0%) - 8.5] [led_joy_mapper:loadenv - 0.1]                                          Starting >>> ros_commons                                                                                                                                       
+14.05 [build 10.8 s] [7/35 complete] [4/4 jobs] [3 queued] [duckietown_msgs:make (0%) - 8.6] [led_joy_mapper:loadenv - 0.2]                                          [build 10.9 s] [7/35 complete] [4/4 jobs] [3 queued] [duckietown_msgs:make (49%) - 8.7] [led_joy_mapper:loadenv - 0.3]                                         [build 11.0 s] [7/35 complete] [4/4 jobs] [3 queued] [duckietown_msgs:make (100%) - 8.8] [led_joy_mapper:loadenv - 0.4]                                        [build 11.1 s] [7/35 complete] [4/4 jobs] [2 queued] [duckietown_msgs:make (100%) - 8.9] [easy_regression:loadenv - 0.1] [led_joy_mapper:check - 0.5]          [build 11.2 s] [7/35 complete] [4/4 jobs] [2 queued] [easy_regression:loadenv - 0.2] [duckietown_msgs:symlink - 9.0] [led_joy_mapper:make - 0.6]               [build 11.3 s] [7/35 complete] [4/4 jobs] [3 queued] [easy_regression:loadenv - 0.3] [duckietown_msgs:symlink - 9.1]                                           [build 11.4 s] [7/35 complete] [4/4 jobs] [3 queued] [easy_regression:loadenv - 0.4] [duckietown_msgs:symlink - 9.2]                                           Finished <<< duckietown_msgs                        [ 9.2 seconds ]                                                                                            
+14.70 Starting >>> apriltag                                                                                                                                          
+14.75 Finished <<< led_joy_mapper                         [ 0.7 seconds ]                                                                                            
+14.75 Starting >>> complete_image_pipeline                                                                                                                           
+14.77 [build 11.5 s] [9/35 complete] [4/4 jobs] [22 queued] [ros_commons:loadenv - 0.1] [easy_regression:check - 0.5]                                                [build 11.6 s] [9/35 complete] [4/4 jobs] [22 queued] [ros_commons:loadenv - 0.2] [easy_regression:make - 0.6]                                                 Finished <<< easy_regression                        [ 0.6 seconds ]                                                                                            
+14.96 Starting >>> dagu_car                                                                                                                                          
+14.97 [build 11.7 s] [10/35 complete] [4/4 jobs] [22 queued] [ros_commons:loadenv - 0.3]                                                                             [build 11.8 s] [10/35 complete] [4/4 jobs] [22 queued] [ros_commons:loadenv - 0.4]                                                                             [build 11.9 s] [10/35 complete] [4/4 jobs] [21 queued] [apriltag:loadenv - 0.1] [ros_commons:check - 0.4]                                                      [build 12.0 s] [10/35 complete] [4/4 jobs] [21 queued] [apriltag:loadenv - 0.2] [ros_commons:make - 0.5]                                                       Finished <<< ros_commons                            [ 0.6 seconds ]                                                                                            
+15.32 Starting >>> easy_node                                                                                                                                         
+15.37 [build 12.1 s] [11/35 complete] [4/4 jobs] [21 queued] [apriltag:loadenv - 0.3]                                                                                [build 12.2 s] [11/35 complete] [4/4 jobs] [21 queued] [apriltag:loadenv - 0.4]                                                                                [build 12.3 s] [11/35 complete] [4/4 jobs] [20 queued] [complete_image_pipeline:loadenv - 0.1] [apriltag:check - 0.5]                                          [build 12.4 s] [11/35 complete] [4/4 jobs] [20 queued] [complete_image_pipeline:loadenv - 0.2] [apriltag:make - 0.6]                                           Finished <<< apriltag                               [ 0.7 seconds ]                                                                                            
+15.78 Starting >>> explicit_coordinator                                                                                                                              
+15.78 [build 12.5 s] [12/35 complete] [4/4 jobs] [20 queued] [complete_image_pipeline:loadenv - 0.3]                                                                 [build 12.6 s] [12/35 complete] [4/4 jobs] [20 queued] [dagu_car:loadenv - 0.0]                                                                                [build 12.7 s] [12/35 complete] [4/4 jobs] [19 queued] [dagu_car:loadenv - 0.1] [complete_image_pipeline:make - 0.5]                                           [build 12.8 s] [12/35 complete] [4/4 jobs] [19 queued] [dagu_car:loadenv - 0.2] [complete_image_pipeline:make - 0.6]                                           Finished <<< complete_image_pipeline                [ 0.6 seconds ]                                                                                            
+16.16 Starting >>> fsm                                                                                                                                               
+16.19 [build 13.0 s] [13/35 complete] [4/4 jobs] [19 queued] [dagu_car:loadenv - 0.3]                                                                                [build 13.1 s] [13/35 complete] [4/4 jobs] [18 queued] [easy_node:loadenv - 0.0] [dagu_car:check - 0.4]                                                        [build 13.2 s] [13/35 complete] [4/4 jobs] [18 queued] [easy_node:loadenv - 0.1] [dagu_car:make - 0.5]                                                         [build 13.3 s] [13/35 complete] [4/4 jobs] [18 queued] [easy_node:loadenv - 0.2] [dagu_car:symlink - 0.6]                                                      Finished <<< dagu_car                               [ 0.6 seconds ]                                                                                            
+16.50 Starting >>> ground_projection                                                                                                                                 
+16.59 [build 13.4 s] [14/35 complete] [4/4 jobs] [18 queued] [easy_node:loadenv - 0.3]                                                                               [build 13.5 s] [14/35 complete] [4/4 jobs] [17 queued] [explicit_coordinator:loadenv - 0.1] [easy_node:check - 0.4]                                            [build 13.6 s] [14/35 complete] [4/4 jobs] [17 queued] [explicit_coordinator:loadenv - 0.2] [easy_node:make - 0.5]                                             Finished <<< easy_node                              [ 0.6 seconds ]                                                                                            
+16.89 Starting >>> histogram_lane_filter                                                                                                                             
+16.89 [build 13.7 s] [15/35 complete] [4/4 jobs] [17 queued] [explicit_coordinator:loadenv - 0.3]                                                                    [build 13.8 s] [15/35 complete] [4/4 jobs] [17 queued] [explicit_coordinator:loadenv - 0.4]                                                                    [build 13.9 s] [15/35 complete] [4/4 jobs] [16 queued] [fsm:loadenv - 0.1] [explicit_coordinator:check - 0.5]                                                  [build 14.0 s] [15/35 complete] [4/4 jobs] [16 queued] [fsm:loadenv - 0.2] [explicit_coordinator:make - 0.6]                                                   [build 14.1 s] [15/35 complete] [4/4 jobs] [16 queued] [fsm:loadenv - 0.3] [explicit_coordinator:symlink - 0.7]                                                Finished <<< explicit_coordinator                   [ 0.7 seconds ]                                                                                            
+17.32 Starting >>> image_processing                                                                                                                                  
+17.40 [build 14.2 s] [16/35 complete] [4/4 jobs] [16 queued] [fsm:loadenv - 0.4]                                                                                     [build 14.3 s] [16/35 complete] [4/4 jobs] [15 queued] [ground_projection:loadenv - 0.1] [fsm:make - 0.5]                                                      [build 14.4 s] [16/35 complete] [4/4 jobs] [15 queued] [ground_projection:loadenv - 0.2] [fsm:make - 0.6]                                                      Finished <<< fsm                                    [ 0.6 seconds ]                                                                                            
+17.66 Starting >>> indefinite_navigation                                                                                                                             
+17.70 [build 14.5 s] [17/35 complete] [4/4 jobs] [15 queued] [ground_projection:loadenv - 0.3]                                                                       [build 14.6 s] [17/35 complete] [4/4 jobs] [14 queued] [histogram_lane_filter:loadenv - 0.0] [ground_projection:check - 0.4]                                   [build 14.7 s] [17/35 complete] [4/4 jobs] [14 queued] [histogram_lane_filter:loadenv - 0.1] [ground_projection:make - 0.5]                                    [build 14.8 s] [17/35 complete] [4/4 jobs] [14 queued] [histogram_lane_filter:loadenv - 0.2] [ground_projection:make - 0.6]                                    Finished <<< ground_projection                      [ 0.6 seconds ]                                                                                            
+18.04 Starting >>> joy_mapper                                                                                                                                        
+18.11 [build 14.9 s] [18/35 complete] [4/4 jobs] [14 queued] [histogram_lane_filter:loadenv - 0.3]                                                                   [build 15.0 s] [18/35 complete] [4/4 jobs] [13 queued] [image_processing:loadenv - 0.0] [histogram_lane_filter:cmake - 0.4]                                    [build 15.1 s] [18/35 complete] [4/4 jobs] [13 queued] [image_processing:loadenv - 0.1] [histogram_lane_filter:cmake - 0.5]                                    [build 15.2 s] [18/35 complete] [4/4 jobs] [13 queued] [image_processing:loadenv - 0.2] [histogram_lane_filter:cmake - 0.6]                                    [build 15.3 s] [18/35 complete] [4/4 jobs] [13 queued] [image_processing:loadenv - 0.3] [histogram_lane_filter:cmake - 0.7]                                    [build 15.4 s] [18/35 complete] [4/4 jobs] [13 queued] [histogram_lane_filter:cmake - 0.8] [indefinite_navigation:loadenv - 0.0]                               [build 15.5 s] [18/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 0.9] [indefinite_navigation:loadenv - 0.1] [image_processing:check - ... [build 15.6 s] [18/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 1.0] [indefinite_navigation:loadenv - 0.2] [image_processing:check - ... [build 15.7 s] [18/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 1.1] [indefinite_navigation:loadenv - 0.3] [image_processing:check - ... [build 15.8 s] [18/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 1.2] [image_processing:check - 0.8] [indefinite_navigation:mkdir - 0.... [build 15.9 s] [18/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 1.3] [image_processing:check - 0.9] [joy_mapper:loadenv - 0.1] [indef... [build 16.0 s] [18/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 1.4] [image_processing:check - 1.0] [joy_mapper:loadenv - 0.2] [indef... [build 16.1 s] [18/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 1.5] [joy_mapper:loadenv - 0.3] [image_processing:make - 1.1]            [build 16.2 s] [18/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 1.6] [image_processing:make - 1.2] [indefinite_navigation:make - 0.8]... [build 16.3 s] [18/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 1.7] [indefinite_navigation:make - 0.9] [joy_mapper:check - 0.5] [ima... Finished <<< image_processing                       [ 1.4 seconds ]                                                                                            
+19.56 Starting >>> anti_instagram                                                                                                                                    
+19.62 [build 16.4 s] [19/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 1.8] [indefinite_navigation:symlink - 1.0] [anti_instagram:loadenv - ... Finished <<< indefinite_navigation                  [ 1.0 seconds ]                                                                                            
+19.66 Starting >>> lane_control                                                                                                                                      
+19.72 [build 16.5 s] [20/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 1.9] [anti_instagram:loadenv - 0.2] [joy_mapper:make - 0.7]              Finished <<< joy_mapper                             [ 0.8 seconds ]                                                                                            
+19.82 Starting >>> lane_filter                                                                                                                                       
+19.82 [build 16.6 s] [21/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 2.0] [anti_instagram:loadenv - 0.3]                                      [build 16.7 s] [21/35 complete] [4/4 jobs] [12 queued] [histogram_lane_filter:cmake - 2.1] [anti_instagram:loadenv - 0.4]                                      [build 16.8 s] [21/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 2.2] [lane_control:loadenv - 0.1] [anti_instagram:check - 0.5]           [build 16.9 s] [21/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 2.3] [lane_control:loadenv - 0.2] [anti_instagram:check - 0.6]           [build 17.0 s] [21/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 2.4] [lane_control:loadenv - 0.3] [anti_instagram:check - 0.7]           [build 17.1 s] [21/35 complete] [4/4 jobs] [11 queued] [histogram_lane_filter:cmake - 2.5] [lane_control:loadenv - 0.4] [anti_instagram:check - 0.8]           [build 17.2 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 2.6] [anti_instagram:check - 0.9] [lane_control:mkdir - 0.5] [lane_fi... [build 17.3 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 2.7] [anti_instagram:check - 1.0] [lane_filter:loadenv - 0.2] [lane_c... [build 17.4 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 2.8] [anti_instagram:check - 1.1] [lane_filter:loadenv - 0.3] [lane_c... [build 17.5 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 2.9] [anti_instagram:check - 1.2] [lane_filter:loadenv - 0.4] [lane_c... [build 17.6 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 3.0] [anti_instagram:check - 1.3] [lane_control:check - 0.9] [lane_fi... [build 17.7 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 3.1] [lane_control:check - 1.0] [lane_filter:check - 0.6] [anti_insta... [build 17.8 s] [21/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 3.2] [anti_instagram:make - 1.5] [lane_control:make - 1.1] [lane_filt... Finished <<< anti_instagram                         [ 1.6 seconds ]                                                                                            
+21.14 Starting >>> led_detection                                                                                                                                     
+21.14 [build 17.9 s] [22/35 complete] [4/4 jobs] [10 queued] [histogram_lane_filter:cmake - 3.3] [lane_filter:symlink - 0.7] [led_detection:loadenv - 0.0]           Finished <<< lane_filter                            [ 0.8 seconds ]                                                                                            
+21.24 Starting >>> led_emitter                                                                                                                                       
+21.24 [build 18.0 s] [23/35 complete] [4/4 jobs] [9 queued] [histogram_lane_filter:cmake - 3.4] [led_detection:loadenv - 0.1] [lane_control:symlink - 1.2]           Finished <<< lane_control                           [ 1.2 seconds ]                                                                                            
+21.29 Starting >>> led_pattern_switch                                                                                                                                
+21.35 [build 18.1 s] [24/35 complete] [4/4 jobs] [9 queued] [histogram_lane_filter:cmake - 3.5] [led_detection:loadenv - 0.2]                                        [build 18.2 s] [24/35 complete] [4/4 jobs] [9 queued] [histogram_lane_filter:cmake - 3.6] [led_detection:loadenv - 0.3]                                        [build 18.3 s] [24/35 complete] [4/4 jobs] [9 queued] [histogram_lane_filter:cmake - 3.7] [led_detection:loadenv - 0.4]                                        [build 18.4 s] [24/35 complete] [4/4 jobs] [8 queued] [histogram_lane_filter:cmake - 3.8] [led_emitter:loadenv - 0.1] [led_detection:check - 0.5]              [build 18.5 s] [24/35 complete] [4/4 jobs] [8 queued] [histogram_lane_filter:cmake - 3.9] [led_emitter:loadenv - 0.2] [led_detection:make - 0.6]               [build 18.6 s] [24/35 complete] [4/4 jobs] [8 queued] [histogram_lane_filter:cmake - 4.0] [led_emitter:loadenv - 0.3] [led_detection:symlink - 0.7]            Finished <<< led_detection                          [ 0.7 seconds ]                                                                                            
+21.88 Starting >>> line_detector                                                                                                                                     
+21.96 [build 18.7 s] [25/35 complete] [4/4 jobs] [8 queued] [histogram_lane_filter:cmake - 4.2] [led_emitter:loadenv - 0.4]                                          [build 18.8 s] [25/35 complete] [4/4 jobs] [7 queued] [histogram_lane_filter:cmake - 4.3] [led_pattern_switch:loadenv - 0.0] [led_emitter:check - 0.5]         [build 18.9 s] [25/35 complete] [4/4 jobs] [7 queued] [histogram_lane_filter:cmake - 4.4] [led_pattern_switch:loadenv - 0.1] [led_emitter:make - 0.6]          [build 19.0 s] [25/35 complete] [4/4 jobs] [7 queued] [histogram_lane_filter:cmake - 4.5] [led_pattern_switch:loadenv - 0.2] [led_emitter:make - 0.7]          Finished <<< led_emitter                            [ 0.7 seconds ]                                                                                            
+22.33 Starting >>> navigation                                                                                                                                        
+22.36 [build 19.1 s] [26/35 complete] [4/4 jobs] [7 queued] [histogram_lane_filter:cmake - 4.6] [led_pattern_switch:loadenv - 0.3]                                   [build 19.2 s] [26/35 complete] [4/4 jobs] [6 queued] [histogram_lane_filter:cmake - 4.7] [led_pattern_switch:mkdir - 0.4] [line_detector:loadenv - 0.0]       [build 19.3 s] [26/35 complete] [4/4 jobs] [6 queued] [histogram_lane_filter:cmake - 4.8] [line_detector:loadenv - 0.1] [led_pattern_switch:check - 0.5]       [build 19.4 s] [26/35 complete] [4/4 jobs] [6 queued] [histogram_lane_filter:cmake - 4.9] [line_detector:loadenv - 0.2] [led_pattern_switch:make - 0.6]        Finished <<< led_pattern_switch                     [ 0.7 seconds ]                                                                                            
+22.74 Starting >>> ros_http_api                                                                                                                                      
+22.77 [build 19.5 s] [27/35 complete] [4/4 jobs] [6 queued] [histogram_lane_filter:cmake - 5.0] [line_detector:loadenv - 0.3]                                        [build 19.6 s] [27/35 complete] [4/4 jobs] [6 queued] [histogram_lane_filter:cmake - 5.1] [line_detector:loadenv - 0.4]                                        [build 19.7 s] [27/35 complete] [4/4 jobs] [5 queued] [histogram_lane_filter:cmake - 5.2] [navigation:loadenv - 0.1] [line_detector:check - 0.5]               [build 19.8 s] [27/35 complete] [4/4 jobs] [5 queued] [histogram_lane_filter:cmake - 5.3] [navigation:loadenv - 0.2] [line_detector:make - 0.6]                [build 19.9 s] [27/35 complete] [4/4 jobs] [5 queued] [histogram_lane_filter:cmake - 5.4] [navigation:loadenv - 0.3] [line_detector:make - 0.7]                Finished <<< line_detector                          [ 0.8 seconds ]                                                                                            
+23.26 Starting >>> stop_line_filter                                                                                                                                  
+23.28 [build 20.0 s] [28/35 complete] [4/4 jobs] [5 queued] [histogram_lane_filter:cmake - 5.5] [navigation:loadenv - 0.4]                                           [build 20.1 s] [28/35 complete] [4/4 jobs] [4 queued] [histogram_lane_filter:cmake - 5.6] [ros_http_api:loadenv - 0.1] [navigation:check - 0.5]                [build 20.2 s] [28/35 complete] [4/4 jobs] [4 queued] [histogram_lane_filter:cmake - 5.7] [ros_http_api:loadenv - 0.2] [navigation:make - 0.6]                 [build 20.3 s] [28/35 complete] [4/4 jobs] [4 queued] [histogram_lane_filter:cmake - 5.8] [ros_http_api:loadenv - 0.3] [navigation:make - 0.7]                 [build 20.4 s] [28/35 complete] [4/4 jobs] [4 queued] [histogram_lane_filter:cmake - 5.9] [ros_http_api:loadenv - 0.4] [navigation:make (0%) - 0.8]            [build 20.6 s] [28/35 complete] [4/4 jobs] [4 queued] [histogram_lane_filter:cmake - 6.0] [navigation:make (0%) - 0.9] [stop_line_filter:loadenv - 0.0]        [build 20.7 s] [28/35 complete] [4/4 jobs] [3 queued] [histogram_lane_filter:cmake - 6.1] [navigation:make (0%) - 1.0] [stop_line_filter:loadenv - 0.1] [ro... [build 20.8 s] [28/35 complete] [4/4 jobs] [3 queued] [histogram_lane_filter:cmake - 6.2] [navigation:make (0%) - 1.1] [stop_line_filter:loadenv - 0.2] [ro... Finished <<< ros_http_api                           [ 0.7 seconds ]                                                                                            
+24.09 [build 20.9 s] [29/35 complete] [4/4 jobs] [3 queued] [histogram_lane_filter:cmake - 6.3] [navigation:make (0%) - 1.2] [stop_line_filter:loadenv - 0.3]        [build 21.0 s] [29/35 complete] [4/4 jobs] [3 queued] [histogram_lane_filter:cmake - 6.4] [navigation:make (0%) - 1.3] [stop_line_filter:loadenv - 0.4]        [build 21.1 s] [29/35 complete] [4/4 jobs] [3 queued] [histogram_lane_filter:cmake - 6.5] [navigation:make (0%) - 1.4] [stop_line_filter:check - 0.5]          Starting >>> unicorn_intersection                                                                                                                              
+24.40 [build 21.2 s] [29/35 complete] [4/4 jobs] [2 queued] [histogram_lane_filter:cmake - 6.6] [navigation:make (100%) - 1.5] [stop_line_filter:make - 0.6] [uni... [build 21.3 s] [29/35 complete] [4/4 jobs] [2 queued] [histogram_lane_filter:cmake - 6.7] [navigation:make (100%) - 1.6] [stop_line_filter:make - 0.7] [uni... Finished <<< stop_line_filter                       [ 0.8 seconds ]                                                                                            
+24.56 Starting >>> vehicle_detection                                                                                                                                 
+24.60 [build 21.4 s] [30/35 complete] [4/4 jobs] [2 queued] [histogram_lane_filter:cmake - 6.8] [unicorn_intersection:loadenv - 0.2] [navigation:symlink - 1.7]      Finished <<< navigation                             [ 1.7 seconds ]                                                                                            
+24.64 Starting >>> visualization_tools                                                                                                                               
+24.70 [build 21.5 s] [31/35 complete] [4/4 jobs] [2 queued] [histogram_lane_filter:cmake - 6.9] [unicorn_intersection:loadenv - 0.3]                                 [build 21.6 s] [31/35 complete] [4/4 jobs] [2 queued] [histogram_lane_filter:cmake - 7.0] [unicorn_intersection:loadenv - 0.4]                                 [build 21.7 s] [31/35 complete] [4/4 jobs] [1 queued] [histogram_lane_filter:cmake - 7.1] [vehicle_detection:loadenv - 0.1] [unicorn_intersection:check - 0.5] [build 21.8 s] [31/35 complete] [4/4 jobs] [1 queued] [histogram_lane_filter:cmake - 7.2] [vehicle_detection:loadenv - 0.2] [unicorn_intersection:make - 0.6]  [build 21.9 s] [31/35 complete] [4/4 jobs] [1 queued] [histogram_lane_filter:cmake - 7.3] [vehicle_detection:loadenv - 0.3] [unicorn_intersection:make - 0.7]  Finished <<< unicorn_intersection                   [ 0.8 seconds ]                                                                                            
+25.21 [build 22.0 s] [32/35 complete] [3/4 jobs] [1 queued] [histogram_lane_filter:cmake - 7.4] [vehicle_detection:loadenv - 0.4]                                    [build 22.1 s] [32/35 complete] [3/4 jobs] [0 queued] [histogram_lane_filter:cmake - 7.5] [visualization_tools:loadenv - 0.0] [vehicle_detection:check - 0.5]  [build 22.2 s] [32/35 complete] [3/4 jobs] [0 queued] [histogram_lane_filter:cmake - 7.6] [visualization_tools:loadenv - 0.1] [vehicle_detection:check - 0.6]  [build 22.3 s] [32/35 complete] [3/4 jobs] [0 queued] [histogram_lane_filter:cmake - 7.7] [visualization_tools:loadenv - 0.2] [vehicle_detection:make - 0.7]   Finished <<< vehicle_detection                      [ 0.7 seconds ]                                                                                            
+25.62 [build 22.4 s] [33/35 complete] [2/4 jobs] [0 queued] [histogram_lane_filter:cmake - 7.8] [visualization_tools:loadenv - 0.3]                                  [build 22.5 s] [33/35 complete] [2/4 jobs] [0 queued] [histogram_lane_filter:cmake - 7.9] [visualization_tools:check - 0.4]                                    [build 22.6 s] [33/35 complete] [2/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.0] [visualization_tools:make - 0.5]                                     [build 22.7 s] [33/35 complete] [2/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.1] [visualization_tools:symlink - 0.6]                                  Finished <<< visualization_tools                    [ 0.7 seconds ]                                                                                            
+26.02 [build 22.8 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.2]                                                                      [build 22.9 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.3]                                                                      [build 23.0 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.4]                                                                      [build 23.1 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.5]                                                                      [build 23.2 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.6]                                                                      [build 23.3 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.7]                                                                      [build 23.4 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.8]                                                                      [build 23.5 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 8.9]                                                                      [build 23.6 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.0]                                                                      [build 23.7 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.1]                                                                      [build 23.8 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.2]                                                                      [build 23.9 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.3]                                                                      [build 24.0 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.4]                                                                      [build 24.1 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.5]                                                                      [build 24.2 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.6]                                                                      [build 24.3 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.7]                                                                      [build 24.4 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.8]                                                                      [build 24.5 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 9.9]                                                                      [build 24.6 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.0]                                                                     [build 24.7 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.1]                                                                     [build 24.8 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.2]                                                                     [build 24.9 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.3]                                                                     [build 25.0 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.4]                                                                     [build 25.1 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.5]                                                                     [build 25.2 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.6]                                                                     [build 25.3 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.7]                                                                     [build 25.4 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.8]                                                                     [build 25.5 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 10.9]                                                                     [build 25.6 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 11.0]                                                                     [build 25.7 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 11.1]                                                                     [build 25.8 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:cmake - 11.2]                                                                     [build 25.9 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:make - 11.3]                                                                      [build 26.0 s] [34/35 complete] [1/4 jobs] [0 queued] [histogram_lane_filter:symlink - 11.4]                                                                   Finished <<< histogram_lane_filter                  [ 11.4 seconds ]                                                                                           
+29.26 [build] Summary: All 35 packages succeeded!                                                                                                                    
+29.26 [build] Ignored: None.                                                                                                                                         
+29.26 [build] Warnings: None.                                                                                                                                        
+29.26 [build] Abandoned: No packages were abandoned.                                                                                                                 
+29.26 [build] Failed: No packages failed.                                                                                                                            
+29.26 [build] Runtime: 26.0 seconds total.                                                                                                                           
+29.36 [build] Note: Workspace packages have changed, please re-source setup files to use them.
+DONE 29.6s
+
+[base 14/16] COPY --from=recipe ./launchers/. /launch/state-estimation/
+DONE 0.2s
+
+[base 15/16] RUN dt-install-launchers "/launch/state-estimation"
+0.705 DONE: Installed 2 launchers!
+DONE 0.8s
+
+[base 16/16] COPY --from=recipe assets/agent/data/config/calibrations/ /data/config/calibrations/
+DONE 0.3s
+
+exporting to image
+exporting layers
+exporting layers 0.7s done
+writing image sha256:d91c74990273e5bedaceb2825a9b2fc8fe58e3ac624d1171e147495ac568b0a8
+writing image sha256:d91c74990273e5bedaceb2825a9b2fc8fe58e3ac624d1171e147495ac568b0a8 0.0s done
+naming to docker.io/lnt/state_estimation:latest-arm64v8 done
+DONE 1.3s
+Login Succeeded
+building with "default" instance using docker driver
+
+[internal] load build definition from Dockerfile.vnc
+transferring dockerfile: 2.66kB done
+DONE 0.0s
+
+[auth] docker/dockerfile:pull token for registry-1.docker.io
+DONE 0.0s
+
+resolve image config for docker-image://docker.io/docker/dockerfile:1.4
+DONE 1.3s
+
+docker-image://docker.io/docker/dockerfile:1.4@sha256:9ba7531bd80fb0a858632727cf7a112fbfd19b17e94c4e84ced81e24ef1a0dbc
+CACHED
+
+[internal] load .dockerignore
+transferring context: 2B done
+DONE 0.0s
+
+[internal] load metadata for docker.io/duckietown/dt-gui-tools:daffy-amd64
+DONE 0.0s
+
+[context recipe] load .dockerignore
+transferring recipe: 306B 0.0s done
+DONE 0.0s
+
+[base  1/14] FROM docker.io/duckietown/dt-gui-tools:daffy-amd64
+DONE 0.0s
+
+[context recipe] load from client
+transferring recipe: 3.40kB done
+DONE 0.0s
+
+[base 10/14] COPY --from=recipe assets/vnc/root/icons/. /root/.icons/
+CACHED
+
+[base  3/14] COPY --from=recipe ./dependencies-apt.txt /tmp/
+CACHED
+
+[base  9/14] COPY --from=recipe assets/vnc/root/Documents/. /root/Documents/
+CACHED
+
+[base  7/14] RUN pip3 uninstall dataclasses -y
+CACHED
+
+[base 11/14] COPY --from=recipe assets/vnc/usr/bin/. /usr/bin/
+CACHED
+
+[base  8/14] COPY --from=recipe assets/vnc/root/Desktop/. /root/Desktop/
+CACHED
+
+[base 13/14] RUN rm /root/Desktop/intrinsic_calibration.desktop
+CACHED
+
+[base  6/14] RUN python3 -m pip install -r /tmp/dependencies-py3.txt
+CACHED
+
+[base  4/14] RUN dt-apt-install /tmp/dependencies-apt.txt
+CACHED
+
+[base  2/14] RUN dt-build-env-check "state-estimation" "Andrea F. Daniele (afdaniele@duckietown.com)" "VNC - State Estimation"
+CACHED
+
+[base 12/14] COPY --from=recipe assets/vnc/opt/ros/noetic/share/rviz/. /opt/ros/noetic/share/rviz/
+CACHED
+
+[base  5/14] COPY --from=recipe ./dependencies-py3.* /tmp/
+CACHED
+
+[base 14/14] COPY --from=recipe assets/agent/data/config/calibrations/ /data/config/calibrations/
+CACHED
+
+exporting to image
+exporting layers done
+writing image sha256:406fed7dcba203acb0c714e6b6f89fa0a461e9b5031f20576204b8951ac136dd done
+naming to docker.io/lnt/state_estimation:latest-vnc-amd64 done
+DONE 0.0s
+<== Entrypoint
++ dt-exec-BG roslaunch --wait agent agent_node.launch
++ cmd='roslaunch --wait agent agent_node.launch'
++ eval 'stdbuf -o L roslaunch --wait agent agent_node.launch 1>&2 &'
++ dt-exec-BG roslaunch --wait car_interface all.launch veh:=duckie1
++ cmd='roslaunch --wait car_interface all.launch veh:=duckie1'
+++ stdbuf -o L roslaunch --wait agent agent_node.launch
++ eval 'stdbuf -o L roslaunch --wait car_interface all.launch veh:=duckie1 1>&2 &'
++ dt-exec-FG roslaunch --wait histogram_lane_filter lane_following.launch
++ cmd='roslaunch --wait histogram_lane_filter lane_following.launch'
++ eval 'stdbuf -o L roslaunch --wait histogram_lane_filter lane_following.launch 1>&2 '
+++ stdbuf -o L roslaunch --wait histogram_lane_filter lane_following.launch
+++ stdbuf -o L roslaunch --wait car_interface all.launch veh:=duckie1
+master has started, initiating launch
+master has started, initiating launch
+master has started, initiating launch
+... logging to /tmp/log/97e52552-6451-11ef-b2ce-001325aead6d/roslaunch-duckie1-126.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/submission_ws/src/agent/launch/agent_node.launch
+... logging to /tmp/log/97e52552-6451-11ef-b2ce-001325aead6d/roslaunch-duckie1-127.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+... logging to /tmp/log/97e52552-6451-11ef-b2ce-001325aead6d/roslaunch-duckie1-128.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch
+Done checking log file disk usage. Usage is <1GB.
+]2;/code/catkin_ws/src/state-estimation/packages/histogram_lane_filter/launch/lane_following.launch
+[1mstarted roslaunch server http://duckie1.local:38497/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+
+NODES
+  /
+    agent_node (agent/solution.py)
+
+[1mROS_MASTER_URI=http://duckie1.local:11312[0m
+]2;/code/submission_ws/src/agent/launch/agent_node.launch http://duckie1.local:11312
+[1mprocess[agent_node-1]: started with pid [153][0m
+[1mstarted roslaunch server http://duckie1.local:34723/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /duckie1/car_cmd_switch_node/mappings/ARRIVE_AT_STOP_LINE: stop
+ * /duckie1/car_cmd_switch_node/mappings/AVOID_OBSTACLE: obstacle
+ * /duckie1/car_cmd_switch_node/mappings/AVOID_VEHICLE: vehicle
+ * /duckie1/car_cmd_switch_node/mappings/CALIBRATING: calib
+ * /duckie1/car_cmd_switch_node/mappings/CALIBRATING_CALC: calib_calc
+ * /duckie1/car_cmd_switch_node/mappings/CHARGING_FIRST_IN_LINE: stop
+ * /duckie1/car_cmd_switch_node/mappings/DEEP_LANE_FOLLOWING: deep_learning
+ * /duckie1/car_cmd_switch_node/mappings/INTERSECTION_CONTROL: intersection
+ * /duckie1/car_cmd_switch_node/mappings/INTERSECTION_COORDINATION: stop
+ * /duckie1/car_cmd_switch_node/mappings/INTERSECTION_PLANNING: stop
+ * /duckie1/car_cmd_switch_node/mappings/INTERSECTION_RECOVERY: recovery
+ * /duckie1/car_cmd_switch_node/mappings/IN_CHARGING_AREA: vehicle
+ * /duckie1/car_cmd_switch_node/mappings/LANE_FOLLOWING: lane
+ * /duckie1/car_cmd_switch_node/mappings/LANE_FOLLOWING_AVOID: lane
+ * /duckie1/car_cmd_switch_node/mappings/LANE_RECOVERY: recovery
+ * /duckie1/car_cmd_switch_node/mappings/LOCALIZATION: stop
+ * /duckie1/car_cmd_switch_node/mappings/NORMAL_JOYSTICK_CONTROL: joystick
+ * /duckie1/car_cmd_switch_node/mappings/OBSTACLE_ALERT: lane
+ * /duckie1/car_cmd_switch_node/mappings/OBSTACLE_STOP: stop
+ * /duckie1/car_cmd_switch_node/mappings/PARALLEL_AUTONOMY: parallel_autonomy
+ * /duckie1/car_cmd_switch_node/mappings/PARKING: parking
+ * /duckie1/car_cmd_switch_node/mappings/SAFE_JOYSTICK_CONTROL: parallel_autonomy
+ * /duckie1/car_cmd_switch_node/mode_topic: fsm_node/mode
+ * /duckie1/car_cmd_switch_node/source_topics/calib: auto_calibration_...
+ * /duckie1/car_cmd_switch_node/source_topics/calib_calc: auto_calibration_...
+ * /duckie1/car_cmd_switch_node/source_topics/coordination: coordinator_node/...
+ * /duckie1/car_cmd_switch_node/source_topics/deep_learning: duckiebot_il_lane...
+ * /duckie1/car_cmd_switch_node/source_topics/intersection: lane_controller_n...
+ * /duckie1/car_cmd_switch_node/source_topics/joystick: joy_mapper_node/c...
+ * /duckie1/car_cmd_switch_node/source_topics/lane: lane_controller_n...
+ * /duckie1/car_cmd_switch_node/source_topics/obstacle: simple_stop_contr...
+ * /duckie1/car_cmd_switch_node/source_topics/parallel_autonomy: lane_supervisor_n...
+ * /duckie1/car_cmd_switch_node/source_topics/parking: lane_controller_n...
+ * /duckie1/car_cmd_switch_node/source_topics/recovery: lane_recovery_nod...
+ * /duckie1/car_cmd_switch_node/source_topics/stop: simple_stop_contr...
+ * /duckie1/joy_mapper_node/bicycle_kinematics: 0
+ * /duckie1/joy_mapper_node/simulated_vehicle_length: 0.18
+ * /duckie1/joy_mapper_node/speed_gain: 0.41
+ * /duckie1/joy_mapper_node/steer_gain: 8.3
+ * /duckie1/kinematics_node/baseline: 0.1
+ * /duckie1/kinematics_node/gain: 1.0
+ * /duckie1/kinematics_node/k: 27.0
+ * /duckie1/kinematics_node/limit: 1.0
+ * /duckie1/kinematics_node/omega_max: 8.0
+ * /duckie1/kinematics_node/radius: 0.0318
+ * /duckie1/kinematics_node/trim: 0.0
+ * /duckie1/kinematics_node/v_max: 1.0
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+
+NODES
+  /duckie1/
+    car_cmd_switch_node (dagu_car/car_cmd_switch_node.py)
+    joy_mapper_node (joy_mapper/joy_mapper_node.py)
+    kinematics_node (dagu_car/kinematics_node.py)
+    velocity_to_pose_node (dagu_car/velocity_to_pose_node.py)
+
+[1mROS_MASTER_URI=http://duckie1.local:11312[0m
+]2;/code/catkin_ws/src/dt-car-interface/packages/car_interface/launch/all.launch http://duckie1.local:11312
+[1mstarted roslaunch server http://duckie1.local:40155/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /duckie1/anti_instagram_node/color_balance_scale: 0.8
+ * /duckie1/anti_instagram_node/interval: 5
+ * /duckie1/anti_instagram_node/output_scale: 0.2
+ * /duckie1/fsm_node/events/joystick_override_off/msg_type: BoolStamped
+ * /duckie1/fsm_node/events/joystick_override_off/topic: joy_mapper_node/j...
+ * /duckie1/fsm_node/events/joystick_override_off/trigger: False
+ * /duckie1/fsm_node/events/joystick_override_on/msg_type: BoolStamped
+ * /duckie1/fsm_node/events/joystick_override_on/topic: joy_mapper_node/j...
+ * /duckie1/fsm_node/events/joystick_override_on/trigger: True
+ * /duckie1/fsm_node/global_transitions/joystick_override_off: LANE_FOLLOWING
+ * /duckie1/fsm_node/global_transitions/joystick_override_on: NORMAL_JOYSTICK_C...
+ * /duckie1/fsm_node/initial_state: NORMAL_JOYSTICK_C...
+ * /duckie1/fsm_node/nodes/anti_instagram: anti_instagram_no...
+ * /duckie1/fsm_node/nodes/ground_projection_node: ground_projection...
+ * /duckie1/fsm_node/nodes/lane_filter_node: lane_filter_node/...
+ * /duckie1/fsm_node/nodes/line_detector_node: line_detector_nod...
+ * /duckie1/fsm_node/states/LANE_FOLLOWING/active_nodes: ['anti_instagram'...
+ * /duckie1/fsm_node/states/LANE_FOLLOWING/lights: CAR_DRIVING
+ * /duckie1/fsm_node/states/NORMAL_JOYSTICK_CONTROL/active_nodes: ['anti_instagram'...
+ * /duckie1/fsm_node/states/NORMAL_JOYSTICK_CONTROL/lights: GREEN
+ * /duckie1/ground_projection_node/board_h: 5
+ * /duckie1/ground_projection_node/board_w: 7
+ * /duckie1/ground_projection_node/square_size: 0.031
+ * /duckie1/ground_projection_node/x_offset: 0.191
+ * /duckie1/ground_projection_node/y_offset: 0.093
+ * /duckie1/histogram_lane_filter_node/debug: True
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/d_max: 0.3
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/d_min: -0.3
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/delta_d: 0.02
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/delta_phi: 0.1
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/encoder_resolution: 135
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/lanewidth: 0.23
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/linewidth_white: 0.05
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/linewidth_yellow: 0.025
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/mean_d_0: 0
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/mean_phi_0: 0
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/phi_max: 1.5
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/phi_min: -1.5
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/range_est: 0.45
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/range_max: 0.6
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/range_min: 0.2
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/sigma_d_0: 0.1
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/sigma_d_mask: 1.0
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/sigma_phi_0: 0.1
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/sigma_phi_mask: 2.0
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/wheel_baseline: 0.1
+ * /duckie1/histogram_lane_filter_node/lane_filter_histogram_configuration/wheel_radius: 0.0318
+ * /duckie1/histogram_lane_filter_node/predict_frequency: 30.0
+ * /duckie1/lane_controller_node/d_offset: 0.0
+ * /duckie1/lane_controller_node/d_resolution: 0.011
+ * /duckie1/lane_controller_node/d_thres: 0.2615
+ * /duckie1/lane_controller_node/integral_bounds/d/bot: -0.3
+ * /duckie1/lane_controller_node/integral_bounds/d/top: 0.3
+ * /duckie1/lane_controller_node/integral_bounds/phi/bot: -1.2
+ * /duckie1/lane_controller_node/integral_bounds/phi/top: 1.2
+ * /duckie1/lane_controller_node/k_Id: -0.3
+ * /duckie1/lane_controller_node/k_Iphi: 0.0
+ * /duckie1/lane_controller_node/k_d: -6.0
+ * /duckie1/lane_controller_node/k_theta: -5
+ * /duckie1/lane_controller_node/omega_ff: 0
+ * /duckie1/lane_controller_node/phi_resolution: 0.051
+ * /duckie1/lane_controller_node/stop_line_slowdown/end: 0.15
+ * /duckie1/lane_controller_node/stop_line_slowdown/start: 0.6
+ * /duckie1/lane_controller_node/theta_thres_max: 0.75
+ * /duckie1/lane_controller_node/theta_thres_min: -0.5
+ * /duckie1/lane_controller_node/v_bar: 0.19
+ * /duckie1/lane_controller_node/verbose: 0
+ * /duckie1/led_emitter_node/LED_protocol/colors/blue: [0, 0, 1]
+ * /duckie1/led_emitter_node/LED_protocol/colors/cyan: [0, 1, 1]
+ * /duckie1/led_emitter_node/LED_protocol/colors/green: [0, 1, 0]
+ * /duckie1/led_emitter_node/LED_protocol/colors/pink: [1, 0, 0.5]
+ * /duckie1/led_emitter_node/LED_protocol/colors/purple: [1, 0, 1]
+ * /duckie1/led_emitter_node/LED_protocol/colors/red: [1, 0, 0]
+ * /duckie1/led_emitter_node/LED_protocol/colors/switchedoff: [0, 0, 0]
+ * /duckie1/led_emitter_node/LED_protocol/colors/white: [1, 1, 1]
+ * /duckie1/led_emitter_node/LED_protocol/colors/yellow: [1, 0.8, 0]
+ * /duckie1/led_emitter_node/LED_protocol/frequencies/f1: 1.9
+ * /duckie1/led_emitter_node/LED_protocol/frequencies/f2: 4
+ * /duckie1/led_emitter_node/LED_protocol/frequencies/f3: 5.7
+ * /duckie1/led_emitter_node/LED_protocol/frequencies/f4: 7.8
+ * /duckie1/led_emitter_node/LED_protocol/frequencies/f5: 10.6
+ * /duckie1/led_emitter_node/LED_protocol/signals/BLUE/color_list: blue
+ * /duckie1/led_emitter_node/LED_protocol/signals/BLUE/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/BLUE/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/BLUE/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_DRIVING/color_list: ['white', 'red', ...
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_DRIVING/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_DRIVING/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_DRIVING/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_A/color_list: ['white', 'red', ...
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_A/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_A/frequency: 4
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_A/frequency_mask: [1, 0, 1, 0, 1]
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_GREEN/color_list: green
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_GREEN/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_GREEN/frequency: 5.7
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_GREEN/frequency_mask: [1, 1, 1, 1, 1]
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_PRIORITY/color_list: ['purple', 'red',...
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_PRIORITY/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_PRIORITY/frequency: 5.7
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_PRIORITY/frequency_mask: [1, 0, 1, 0, 1]
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_SACRIFICE_FOR_PRIORITY/color_list: ['white', 'red', ...
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_SACRIFICE_FOR_PRIORITY/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_SACRIFICE_FOR_PRIORITY/frequency: 1.9
+ * /duckie1/led_emitter_node/LED_protocol/signals/CAR_SIGNAL_SACRIFICE_FOR_PRIORITY/frequency_mask: [1, 0, 1, 0, 1]
+ * /duckie1/led_emitter_node/LED_protocol/signals/GREEN/color_list: green
+ * /duckie1/led_emitter_node/LED_protocol/signals/GREEN/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/GREEN/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/GREEN/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/LIGHT_OFF/color_list: switchedoff
+ * /duckie1/led_emitter_node/LED_protocol/signals/LIGHT_OFF/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/LIGHT_OFF/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/LIGHT_OFF/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_ALERT/color_list: ['white', 'yellow...
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_ALERT/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_ALERT/frequency: 1.9
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_ALERT/frequency_mask: [0, 1, 0, 1, 0]
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_STOPPED/color_list: ['white', 'red', ...
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_STOPPED/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_STOPPED/frequency: 4
+ * /duckie1/led_emitter_node/LED_protocol/signals/OBSTACLE_STOPPED/frequency_mask: [0, 1, 0, 1, 0]
+ * /duckie1/led_emitter_node/LED_protocol/signals/POPO/color_list: ['blue', 'red', '...
+ * /duckie1/led_emitter_node/LED_protocol/signals/POPO/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/POPO/frequency: 4
+ * /duckie1/led_emitter_node/LED_protocol/signals/POPO/frequency_mask: [1, 1, 0, 1, 1]
+ * /duckie1/led_emitter_node/LED_protocol/signals/RED/color_list: red
+ * /duckie1/led_emitter_node/LED_protocol/signals/RED/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/RED/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/RED/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/WHITE/color_list: white
+ * /duckie1/led_emitter_node/LED_protocol/signals/WHITE/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/WHITE/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/WHITE/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/YELLOW/color_list: yellow
+ * /duckie1/led_emitter_node/LED_protocol/signals/YELLOW/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/YELLOW/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/YELLOW/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/light_off/color_list: switchedoff
+ * /duckie1/led_emitter_node/LED_protocol/signals/light_off/color_mask: []
+ * /duckie1/led_emitter_node/LED_protocol/signals/light_off/frequency: 0
+ * /duckie1/led_emitter_node/LED_protocol/signals/light_off/frequency_mask: []
+ * /duckie1/led_emitter_node/LED_scale: 0.8
+ * /duckie1/led_emitter_node/channel_order/duckiebot: RGB
+ * /duckie1/led_emitter_node/channel_order/traffic_light: GRB
+ * /duckie1/led_emitter_node/robot_type: duckiebot
+ * /duckie1/line_detector_node/colors/RED/high_1: [15, 255, 255]
+ * /duckie1/line_detector_node/colors/RED/high_2: [180, 255, 255]
+ * /duckie1/line_detector_node/colors/RED/low_1: [0, 140, 100]
+ * /duckie1/line_detector_node/colors/RED/low_2: [165, 140, 100]
+ * /duckie1/line_detector_node/colors/WHITE/high: [180, 100, 255]
+ * /duckie1/line_detector_node/colors/WHITE/low: [0, 0, 150]
+ * /duckie1/line_detector_node/colors/YELLOW/high: [45, 255, 255]
+ * /duckie1/line_detector_node/colors/YELLOW/low: [25, 140, 100]
+ * /duckie1/line_detector_node/img_size: [120, 160]
+ * /duckie1/line_detector_node/line_detector_parameters/canny_aperture_size: 3
+ * /duckie1/line_detector_node/line_detector_parameters/canny_thresholds: [80, 200]
+ * /duckie1/line_detector_node/line_detector_parameters/dilation_kernel_size: 3
+ * /duckie1/line_detector_node/line_detector_parameters/hough_max_line_gap: 1
+ * /duckie1/line_detector_node/line_detector_parameters/hough_min_line_length: 3
+ * /duckie1/line_detector_node/line_detector_parameters/hough_threshold: 2
+ * /duckie1/line_detector_node/top_cutoff: 40
+ * /duckie1/line_segment_visualizer_node/veh_name: duckie1
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+
+NODES
+  /
+    duckie1_to_map (tf/static_transform_publisher)
+  /duckie1/
+    anti_instagram_node (anti_instagram/anti_instagram_node.py)
+    fsm_node (fsm/fsm_node.py)
+    ground_projection_node (ground_projection/ground_projection_node.py)
+    histogram_lane_filter_node (histogram_lane_filter/histogram_lane_filter_node.py)
+    lane_controller_node (lane_control/lane_controller_node.py)
+    lane_pose_visualizer_node (visualization_tools/lane_pose_visualizer_node.py)
+    led_emitter_node (led_emitter/led_emitter_node.py)
+    line_detector_node (line_detector/line_detector_node.py)
+    line_segment_visualizer_node (visualization_tools/line_segment_visualizer_node.py)
+
+[1mROS_MASTER_URI=http://duckie1.local:11312[0m
+]2;/code/catkin_ws/src/state-estimation/packages/histogram_lane_filter/launch/lane_following.launch http://duckie1.local:11312
+[1mprocess[duckie1/joy_mapper_node-1]: started with pid [164][0m
+[1mprocess[duckie1/kinematics_node-2]: started with pid [165][0m
+[1mprocess[duckie1/velocity_to_pose_node-3]: started with pid [166][0m
+[1mprocess[duckie1/car_cmd_switch_node-4]: started with pid [167][0m
+DEBUG:commons:version: 6.2.4 *
+DEBUG:typing:version: 6.2.3
+[1mprocess[duckie1/fsm_node-1]: started with pid [180][0m
+[1mprocess[duckie1/line_detector_node-2]: started with pid [184][0m
+[1mprocess[duckie1/ground_projection_node-3]: started with pid [185][0m
+[1mprocess[duckie1/line_segment_visualizer_node-4]: started with pid [187][0m
+[1mprocess[duckie1_to_map-5]: started with pid [188][0m
+[1mprocess[duckie1/lane_pose_visualizer_node-6]: started with pid [189][0m
+DEBUG:aido_schemas:aido-protocols version 6.1.1 path /usr/local/lib/python3.8/dist-packages
+[1mprocess[duckie1/led_emitter_node-7]: started with pid [193][0m
+[1mprocess[duckie1/anti_instagram_node-8]: started with pid [201][0m
+[1mprocess[duckie1/histogram_lane_filter_node-9]: started with pid [203][0m
+[1mprocess[duckie1/lane_controller_node-10]: started with pid [204][0m
+DEBUG:nodes:version 6.2.17 path /usr/local/lib/python3.8/dist-packages pyparsing 2.4.6
+[INFO] [1724748730.457493]: [/duckie1/velocity_to_pose_node] Initializing...
+[INFO] [1724748730.682098]: [/duckie1/velocity_to_pose_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748730.742753]: [/duckie1/kinematics_node] Initializing...
+[INFO] [1724748730.761016]: [/duckie1/velocity_to_pose_node] Initialized.
+[INFO] [1724748731.077708]: [/duckie1/kinematics_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748731.220232]: [/duckie1/joy_mapper_node] Initializing...
+[INFO] [1724748731.542479]: [/duckie1/joy_mapper_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748731.600332]: FSM waiting for service anti_instagram_node/switch
+[INFO] [1724748731.994909]: [/duckie1/kinematics_node] Initialized with: 
+{
+    "baseline": 0.1,
+    "gain": 0.5,
+    "k": 27.0,
+    "limit": 1.0,
+    "omega_max": 8.0,
+    "radius": 0.033,
+    "trim": -0.01,
+    "v_max": 1.0
+}
+[INFO] [1724748732.258036]: [/duckie1/line_segment_visualizer_node] Initializing...
+[INFO] [1724748732.392721]: [/duckie1/line_segment_visualizer_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748732.422448]: [/duckie1/line_segment_visualizer_node] ~veh_name = duckie1 
+[INFO] [1724748732.487607]: [/duckie1/car_cmd_switch_node] Initializing...
+[INFO] [1724748732.522126]: [/duckie1/line_segment_visualizer_node] Initialzed.
+[INFO] [1724748732.538982]: [/duckie1/lane_controller_node] Initializing...
+[INFO] [1724748732.673304]: [/duckie1/car_cmd_switch_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748732.738219]: [/duckie1/lane_controller_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748733.064278]: [/duckie1/car_cmd_switch_node] Initialized.
+[INFO] [1724748733.081619]: [/duckie1/car_cmd_switch_node] Sources:
+	- 'lane': 'lane_controller_node/car_cmd'
+	- 'intersection': 'lane_controller_node/car_cmd'
+	- 'coordination': 'coordinator_node/car_cmd'
+	- 'joystick': 'joy_mapper_node/car_cmd'
+	- 'obstacle': 'simple_stop_controller_node/car_cmd'
+	- 'parallel_autonomy': 'lane_supervisor_node/car_cmd'
+	- 'recovery': 'lane_recovery_node/car_cmd'
+	- 'deep_learning': 'duckiebot_il_lane_following/car_cmd'
+	- 'parking': 'lane_controller_node/car_cmd'
+	- 'calib': 'auto_calibration_node/car_cmd'
+	- 'calib_calc': 'auto_calibration_calculation_node/car_cmd'
+	- 'stop': 'simple_stop_controller_node/car_cmd'
+[INFO] [1724748733.268386]: [/duckie1/lane_controller_node] Initialized!
+[INFO] [1724748733.619362]: [/duckie1/lane_pose_visualizer_node] Initializing...
+[INFO] [1724748733.707838]: [/duckie1/led_emitter_node] Initializing...
+[INFO] [1724748733.901350]: [/duckie1/lane_pose_visualizer_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748733.908451]: [/duckie1/lane_pose_visualizer_node] Vehicle name: duckie1
+[INFO] [1724748733.920799]: [/duckie1/led_emitter_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748733.965178]: [/duckie1/lane_pose_visualizer_node] Initialzed.
+[INFO] [1724748734.059733]: [/duckie1/led_emitter_node] Pattern changed to ('WHITE'), cycle: 0 
+[INFO] [1724748734.066589]: [/duckie1/led_emitter_node] Initialized.
+[INFO] [1724748734.187924]: [/duckie1/anti_instagram_node] Initializing...
+[INFO] [1724748734.341786]: [/duckie1/anti_instagram_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724748734.390398]: FSM found service anti_instagram_node/switch
+[INFO] [1724748734.401759]: FSM waiting for service line_detector_node/switch
+DEBUG:commons:version: 6.2.4 *
+[INFO] [1724748734.526452]: [/duckie1/anti_instagram_node] Initialized.
+DEBUG:commons:version: 6.2.4 *
+DEBUG:typing:version: 6.2.3
+DEBUG:typing:version: 6.2.3
+DEBUG:geometry:PyGeometry-z6 version 2.1.4 path /usr/local/lib/python3.8/dist-packages
+DEBUG:geometry:PyGeometry-z6 version 2.1.4 path /usr/local/lib/python3.8/dist-packages
+[INFO] [1724748736.229737]: [/duckie1/histogram_lane_filter_node] Initializing...
+[INFO] [1724748736.385070]: [/duckie1/histogram_lane_filter_node] Health status changed [STARTING] -> [STARTED]
+DEBUG:ipce:version 6.1.2 path /usr/local/lib/python3.8/dist-packages
+DEBUG:nodes_wrapper:checking implementation
+DEBUG:nodes_wrapper:checking implementation OK
+DEBUG:nodes_wrapper.ROSTemplateAgent:run_loop
+  fin: [38;5;127m/fifos/ego0-in[0m
+ fout: [38;5;127mfifo:/fifos/ego0-out[0m
+DEBUG:nodes_wrapper:Fifo /fifos/ego0-out created. I will block until a reader appears.
+DEBUG:nodes_wrapper:Fifo reader appeared for /fifos/ego0-out.
+DEBUG:nodes_wrapper.ROSTemplateAgent:Starting reading
+ fi_desc: [38;5;127m/fifos/ego0-in[0m
+ fo_desc: [38;5;127mfifo:/fifos/ego0-out[0m
+INFO:nodes_wrapper.ROSTemplateAgent.data:duckie1:ROSTemplateAgent: init()
+[32m[DEBUG] [1724748737.385735]: init_node, name[/agent_node], pid[153]
+[0m[32m[DEBUG] [1724748737.398528]: ... service URL is rosrpc://duckie1.local:37501
+[0m[32m[DEBUG] [1724748737.404284]: [/agent_node/get_loggers]: new Service instance
+[0m[32m[DEBUG] [1724748737.426030]: ... service URL is rosrpc://duckie1.local:37501
+[0m[32m[DEBUG] [1724748737.431367]: [/agent_node/set_logger_level]: new Service instance
+[0m[INFO] [1724748737.440347]: Just after init_node.
+Just after init_node.
+duckie1:ROSTemplateAgent: Running on robot = True.
+duckie1:ROSTemplateAgent: inited
+duckie1:ROSTemplateAgent: Starting episode episode.
+topic[/rosout] adding connection to [/rosout], count 0
+[INFO] [1724748737.759041]: Lane Filter Resetting
+[INFO] [1724748737.839051]: [/duckie1/ground_projection_node] Initializing...
+[INFO] [1724748738.017806]: [/duckie1/line_detector_node] Initializing...
+[INFO] [1724748738.048335]: [/duckie1/ground_projection_node] Health status changed [STARTING] -> [STARTED]
+
+0.01924050967398549, 0.0, 0.02960078411382381
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9807594903260145
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+topic[/duckie1/camera_node/camera_info] adding connection to [/duckie1/ground_projection_node], count 0
+[INFO] [1724748738.407245]: FSM found service line_detector_node/switch
+[INFO] [1724748738.421146]: FSM waiting for service lane_filter_node/switch
+[INFO] [1724748738.485462]: [/duckie1/line_detector_node] Health status changed [STARTING] -> [STARTED]
+topic[/duckie1/camera_node/image/compressed] adding connection to [/duckie1/line_detector_node], count 1
+
+0.02145959593864724, 6.570588521078305e-05, 0.014800392056911894
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9785404062673236
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.025159288704068427, 0.00012046678717535296, 0.02960078411382381
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9748407187393254
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.03329593834116152, 0.0003613883662815574, 0.014800392056911887
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9667041292087495
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748739.066912]: [/duckie1/ground_projection_node] First projected segments published.
+[INFO] [1724748739.140568]: [/duckie1/lane_controller_node] Health status changed [STARTED] -> [ERROR]
+[31m[ERROR] [1724748739.155584]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.04365507808434084, 0.0005147188917823531, 0.014800392056911887
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9563450604302851
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.056234033486772875, 0.0007009059584618907, -3.469446951953614e-17
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9437662267838409
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748739.233384]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748739.264821]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.068814366735148, 0.0007009059584618903, 0.014800392056911887
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9311858970517252
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.08139332213758003, 0.0008870930251414279, 0.02960078411382381
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9186071061925588
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.09470783972555055, 0.0012813283364061262, 0.02960078411382381
+This is the path point
+[1. 0. 0.]
+Distance:
+0.9052930670543574
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.10876205273507498, 0.0016974656094077521, 0.04440117617073572
+This is the path point
+[1. 0. 0.]
+Distance:
+0.891239563773115
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.11541566508868313, 0.0019930881189855723, 0.029600784113823803
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8845865802569847
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748739.641996]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748739.649858]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.12946987809820756, 0.002409225391987198, 0.044401176170735704
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8705334557070963
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.14203781254391185, 0.0029676234656341918, 0.059201568227647626
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8579673198283659
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.1560735526163614, 0.0037995334161100864, 0.07400196028455953
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8439350004874483
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.1700954432972648, 0.004839079124514168, 0.05920156822764763
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8299186646429496
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.17674395175263566, 0.005233141732634328, 0.07400196028455955
+This is the path point
+[1. 0. 0.]
+Distance:
+0.823272680676494
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.18928985394081238, 0.006163261576995875, 0.08880235234147146
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8107335732018108
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.19666089069226814, 0.006819553027697488, 0.08880235234147146
+This is the path point
+[1. 0. 0.]
+Distance:
+0.8033680544102046
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748740.140409]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.21066586052003405, 0.008066506784030553, 0.07400196028455956
+This is the path point
+[31m[ERROR] [1724748740.149450]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[1. 0. 0.]
+Distance:
+0.7893753557593974
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748740.162809]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748740.170379]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.22394975695457411, 0.009051339560413367, 0.07400196028455956
+This is the path point
+[1. 0. 0.]
+Distance:
+0.7761030256858316
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.2379716476354775, 0.010090885268817448, 0.029600784113823816
+This is the path point
+[1. 0. 0.]
+Distance:
+0.7620951618878691
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.2505464698018941, 0.010463218618345219, 0.014800392056911894
+This is the path point
+[1. 0. 0.]
+Distance:
+0.7495265658202239
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.2638653637574104, 0.01066035786541767, 0.014800392056911894
+This is the path point
+[1. 0. 0.]
+Distance:
+0.7362118213570252
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.2779241962660109, 0.010868449292883036, 0.0296007841138238
+This is the path point
+[1. 0. 0.]
+Distance:
+0.722157593277339
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.28088297795222655, 0.010956057139830746, 0.08880235234147146
+This is the path point
+[1. 0. 0.]
+Distance:
+0.7192004773266694
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.2948879477799925, 0.01220301089616381, 0.10360274439838336
+This is the path point
+[1. 0. 0.]
+Distance:
+0.705217639924614
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+
+0.30887292899950197, 0.013657099558190198, 0.11840313645529527
+This is the path point
+[1. 0. 0.]
+Distance:
+0.6912619942091925
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748740.901377]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748740.924714]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.3162213128071814, 0.014531260112442174, 0.11840313645529527
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748740.974600]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.This is the path point
+[1. 0. 0.]
+
+Distance:
+0.6839330746349309
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[31m[ERROR] [1724748740.986174]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748740.993479]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.024354]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.3309180804225403, 0.016279581220946124, 0.11840313645529527
+This is the path point
+[1. 0. 0.]
+Distance:
+0.6692799413326144
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748741.060507]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.066606]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.074426]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.080574]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748741.103853]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.109654]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.117156]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.34561484803789916, 0.018027902329450077, 0.11840313645529527
+This is the path point
+[1. 0. 0.]
+Distance:
+0.654633433587731
+This is the speed:
+0.3
+0
+This is the flag:
+0
+[31m[ERROR] [1724748741.127157]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mThis is the i:
+1
+[INFO] [1724748741.143270]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.155612]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.35737226213018625, 0.019426559216253237, 0.11840313645529527
+This is the path point
+[1. 0. 0.]
+Distance:
+0.6429213020912098
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748741.174215]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.180835]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748741.194012]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.201659]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.214078]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748741.228171]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748741.239735]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.249539]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.3705993529840092, 0.021000048213906792, 0.08880235234147144
+This is the path point
+[1. 0. 0.]
+Distance:
+0.6297508844687193
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748741.259048]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.285721]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748741.302921]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.311671]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.3823930117863384, 0.02205011453502937, 0.05920156822764759
+This is the path point
+[INFO] [1724748741.330761]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.336839]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[1. 0. 0.]Warning: Sum of belief is zero. Returning unmodified belief.
+
+Distance:
+0.6180004849847271
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748741.372954]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.386950]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.3956900286970801, 0.022838239751269692, 0.029600784113823764
+This is the path point
+[1. 0. 0.]
+Distance:
+0.6047413716714546
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+1
+[INFO] [1724748741.413190]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.4090045462850506, 0.02323247506253439, 0.029600784113823764
+This is the path point
+[1. 0. 0.][31m[ERROR] [1724748741.425997]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+Distance:
+0.591451920454461
+This is the speed:
+0.3
+0
+This is the flag:
+0
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+Warning: Sum of belief is zero. Returning unmodified belief.
+0.4119633279712663, 0.0233200829094821, -0.029600784113823896
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1400398186460723
+This is the speed:
+0
+12.566370614359172
+This is the flag:
+1
+This is the i:
+2
+
+[INFO] [1724748741.478472]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.484965]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.499473]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.526215]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748741.549504]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.558391]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.42453815013768287, 0.02294774955995433, -0.044401176170735815
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1339256769016732
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748741.601844]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.609957]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748741.649826]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.655496]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.43340963327582704, 0.02255358621385057, 0.044401176170735676
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1297903059807324
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748741.662790]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.681692]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748741.698420]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.705204]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.712402]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748741.724389]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.4363667943218751, 0.022684973995885156, 0.10360274439838334
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1281963705828977
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748741.736930]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.755005]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.761747]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748741.768237]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.43710284596500715, 0.02276150497809707, 0.08880235234147142[INFO] [1724748741.788750]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1277625114240002
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748741.823598]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.4452109863916085, 0.023483425573868844, 0.13320352851220715
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1231097318381307
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748741.838380]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748741.855207]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748741.872463]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.4540125562373931, 0.024662809338198144, 0.16280431262603098
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1177588846591566
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748741.938710]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748741.946920]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.45474279028281556, 0.024782756207693317, 0.14800392056911907
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1172976762431903
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748741.974052]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.4591343658625887, 0.025437514468876113, 0.23680627291059056
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1145885664205721
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.018214]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748742.031187]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.46345056946360025, 0.02647916264751512, 0.325608625252062
+This is the path point
+[1. 0. 1.]
+Distance:
+1.1115881036464983
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.040380]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.050707]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.073850]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.101895]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.111064]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.4725653396653136, 0.02955654258808798, 0.37000980142279777[31m[ERROR] [1724748742.120233]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+This is the path point
+[1. 0. 1.]
+Distance:
+1.104512482933512
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.138223]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.154562]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.161137]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.170177]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.4815345322236006, 0.03303546310759565, 0.35520940936588585
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0971904378384558
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.200680]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.206988]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.222918]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.231083]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.240880]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.249237]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.255490]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.4926356986556558, 0.03715336683064738, 0.35520940936588585
+This is the path point
+[1. 0. 1.]
+Distance:
+1.088343775322941
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748742.291732]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.311399]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.320858]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.327764]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.5044306879897145, 0.04152863953638984, 0.37000980142279777
+This is the path point
+[1. 0. 1.]
+Distance:
+1.079007086091334
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748742.343453]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.5154696942152984, 0.045810387868091586, 0.37000980142279777
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0701623396122004
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.381155]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.406075]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.419440]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.5216791352171894, 0.04821887130467382, 0.35520940936588585
+This is the path point
+[1. 0. 1.]
+Distance:
+1.065212733038394
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748742.431150]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.463107]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.472192]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.478151]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.486637]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.5327803016492446, 0.052336775027725546, 0.35520940936588585
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0565793081883739
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.524504]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+
+0.5397185306692791, 0.05491046485463288, 0.2072054887967667
+[31m[ERROR] [1724748742.550720]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mThis is the path point
+[1. 0. 1.][INFO] [1724748742.557853]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+
+Distance:
+1.0512151351890504
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748742.570941]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748742.594384]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.603980]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.609703]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.617488]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.5513055757271853, 0.05734632487740994, 0.2072054887967667
+This is the path point
+[1. 0. 1.]
+Distance:
+1.043993600361438
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.641976]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748742.654567]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.661187]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.667736]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.684712]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.693748]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.704154]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.713727]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.575203856159117, 0.06237028617438763, 0.1924050967398548
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0293693428846538
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.740918]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.747137]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748742.766927]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.773009]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.783056]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.792100]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.5890047749708963, 0.06505891286802533, 0.17760470468294287
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0212893377511791
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748742.808831]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.819030]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748742.844242]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748742.852869]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.6021155946584295, 0.06741225245295923, 0.17760470468294287[INFO] [1724748742.862631]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0139190830085398
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+0.608671004502196, 0.06858892224542618, 0.16280431262603096
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0102796536015446
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748742.936162]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748742.968655]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.6152431109109983, 0.06966844407088273, 0.02960078411382372
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0067545220454381
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748742.979080]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748742.998017]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.007548]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.6219003697049835, 0.06986556172651508, 0.16280431262603096
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0040465147051503
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.027320]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.033677]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.6423469229768126, 0.07322407407237991, 0.16280431262603096
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9933928429292973
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.055496]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.067221]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.091172]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.106198]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.117415]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.124650]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.138282]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.144455]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.655491135794417, 0.07538311772329301, 0.16280431262603096
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9867130973628143
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.168815]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.187653]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.198435]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.205089]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.217930]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.227396]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.6657144124303315, 0.07706237389622542, 0.3700098014227977
+This is the path point[INFO] [1724748743.238636]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+[1. 0. 1.]
+Distance:
+0.9816112854561471
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748743.245223]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.261369]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.267069]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.282779]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.6726137913213215, 0.079738466603539, 0.3700098014227977
+[31m[ERROR] [1724748743.289557]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mThis is the path point
+[1. 0. 1.]
+Distance:
+[INFO] [1724748743.301813]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+0.9767614957000531Warning: Sum of belief is zero. Returning unmodified belief.
+This is the speed:
+
+0.3
+0
+This is the flag:
+1[31m[ERROR] [1724748743.308783]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+This is the i:
+2
+[INFO] [1724748743.331094]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.338233]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.346276]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.355033]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.6926219901051924, 0.08749913545474843, 0.3552094093658858
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9628806098176056
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.382167]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.392775]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.408047]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.416917]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.705804625243258, 0.09238914612587235, 0.3404090173089739
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9541008230781394
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.456382]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.463895]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.494056]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.503106]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.726033747348454, 0.09955424336499621, 0.32560862525206197
+This is the path point
+[1. 0. 1.]
+Distance:
+[INFO] [1724748743.538846]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+0.9412013962133265
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748743.547229]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.560126]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.566209]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.583814]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.590323]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.7393553345663428, 0.10405195250891039, 0.3404090173089739
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9330908559310389
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.598888]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.609461]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.639293]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.648232]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.655947]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.7519113413902576, 0.108499254243539, 0.3404090173089739
+This is the path point
+[1. 0. 1.]
+Distance:
+0.925376443516425
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748743.666184]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.682594]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.717399]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.724187]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.7553991210635672, 0.10973461583649138, 0.2664070570244143
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9232562180761498
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.760598]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748743.772981]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.7753887116455399, 0.11518965151375139, 0.2664070570244143
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9128743526053337
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748743.798102]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.815590]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.839315]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.788953076683307, 0.11889128286617782, 0.2516066649675024
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9060316634923152
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748743.879215]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748743.897941]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748743.906623]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748743.929812]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.7925366722127972, 0.11981246058839654, 0.32560862525206197
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9043069926258412
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+0.7995480339064229, 0.12217967592729874, 0.4736125458211811
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9004162993115368
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748743.990756]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.8054751007469022, 0.12521741006457057, 0.3404090173089739
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8961498290372908[31m[ERROR] [1724748743.998786]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.037516]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.043813]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.8117531041588596, 0.12744106093188487, 0.4736125458211811
+This is the path point
+Warning: Sum of belief is zero. Returning unmodified belief.
+[1. 0. 1.]
+Distance:
+0.8926343013471417
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.097735]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.8183387339816144, 0.13081632108440913, 0.6216164663903003
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8879645732035956
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748744.110241]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.137272]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.145757]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.8243546357982277, 0.1351258253009571, 0.4736125458211812
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8825296777032056
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.173838]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.182532]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.8302817026387069, 0.13816355943822892, 0.6068160743333884
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8783884964748796
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.205467]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.232270]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748744.253146]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.260390]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.8479108692098408, 0.1504015529665914, 0.6216164663903003
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8631040637756757
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.271869]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.290961]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748744.313175]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.320793]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.327208]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.859341082661406, 0.15858961097803254, 0.6364168584472122
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8530863811953419
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748744.334955]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748744.352797]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.364198]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748744.390146]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.400322]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.8700537158971913, 0.16650613099863323, 0.666017642561036
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8435627222767703
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+
+0.8816910929626278, 0.1756506955085021, 0.666017642561036
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8327957572538383
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.464359]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.478132]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.489011]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.496932]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+0.8927466011747925, 0.1843380317928775, 0.6512172505041242
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8226832549280895
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.543222]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.555774]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.577920]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.584719]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.8974551774525694, 0.18792656439583452, 0.6512172505041242
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8185222693642713
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+
+0.906283757973401, 0.19465506302637892, 0.6068160743333884
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8107793790721578
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.684274]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.700044]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.707823]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.720167]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.9154022924067461, 0.2009850596789802, 0.5624148981626527
+This is the path point
+[1. 0. 1.]
+Distance:
+0.803480956206329
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.741450]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.750492]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.757200]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.788233]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.924166772543869, 0.2065094758829555, 0.503213329935005
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7971059466908744
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748744.825792]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.833740]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.844618]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.93907732545192, 0.2147174695257019, 0.4292113696504455
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7876421934750627
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748744.863026]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748744.894486]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.902083]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.907939]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748744.918437]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.945133385406198, 0.21748912748628202, 0.29600784113823825
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7844320308345173
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748744.957312]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748744.975775]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748744.983598]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.9522117368218456, 0.21964779431934686, 0.1480039205691191
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7818140974734626
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748744.996035]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.015224]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+0.9580671709282098, 0.22052080533425725, 0.2664070570244144
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7806062881316796
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.038321]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748745.053310]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.064956]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.081077]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.092334]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+0.9709176220166208, 0.2240276139839244, 0.2664070570244144
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7765171785405972
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748745.101993]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.113566]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.9773428475608263, 0.22578101830875796, 0.13320352851220718
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7745504361677654
+This is the speed:
+[INFO] [1724748745.148010]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748745.155689]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.162210]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.169420]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.9905452023295033, 0.22755009395525191, 0.13320352851220718
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7725077673056305
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748745.224183]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.231629]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.242850]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.250598]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.9971463797138417, 0.2284346317784989, -5.551115123125783e-17
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7715706452344582
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748745.285689]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.294007]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.301430]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748745.311184]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.325577]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.0045465757422976, 0.2284346317784989, 0.1480039205691191
+This is the path point[31m[ERROR] [1724748745.331784]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+[1. 0. 1.]
+Distance:
+0.7715787638276218
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748745.356087]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.0140616561651394, 0.2298532746777283, 0.340409017308974
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7702750863806548
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.370989]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.393120]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.399551]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.405982]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.412471]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.027315218923716, 0.23454764873094738, 0.3552094093658859
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7659395689270607
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748745.449104]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.461308]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.[INFO] [1724748745.492853]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.0335596250417471, 0.23686396957516398, 0.340409017308974
+This is the path point
+[1. 0. 1.]
+
+Distance:
+0.7638735820576065
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.504915]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748745.539693]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.557116]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.046115631865662, 0.24131127130979257, 0.340409017308974
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7600889675188901
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748745.589898]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.598772]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.0530911912122811, 0.24378199449569735, 0.48841293787809315
+This is the path point
+Warning: Sum of belief is zero. Returning unmodified belief.
+[1. 0. 1.]
+Distance:
+0.7580793800343368
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748745.637141]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748745.687949]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.693916]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.058972650883058, 0.24690711563915418, 0.3552094093658859
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7553983492350994
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+1.0721552860211234, 0.2517971263102781, 0.340409017308974
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7516740819652811
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.734434]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.747188]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.0791308453677426, 0.2542678494961829, 0.340409017308974
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7499187495880212
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748745.821082]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.0854088487797, 0.2564915003634972, 0.20720548879676676
+This is the path point[INFO] [1724748745.834062]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+[1. 0. 1.]
+Distance:
+0.7483979960432798
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.851479]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748745.896379]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748745.906828]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748745.927782]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.0969958938376063, 0.2589273603862743, 0.17760470468294293
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7473933774160774
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748745.939459]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748745.976109]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748745.990980]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.10937833465361, 0.2611499588831563, 0.162804312626031
+This is the path point
+[INFO] [1724748745.998030]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[1. 0. 1.]
+Distance:
+0.7469022716192252
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+1.1217923134257919, 0.26318905566457423, 0.1480039205691191
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7468090353645089
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.032978]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+1.1342351109018158, 0.26504420407125884, 0.13320352851220718[INFO] [1724748746.087517]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7471138380247498
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.113835]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.1371689675170773, 0.2654373319927019, 0.19240509673985484
+This is the path point
+[1. 0. 1.]
+Distance:
+0.747260087840707
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748746.141410]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.157957]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+
+1.1400744241090308, 0.2660033586650467, 0.13320352851220718
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7472428746936759
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+1.1503429222624462, 0.26737930639009755, -0.0740019602845596
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7478877422313235
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+Warning: Sum of belief is zero. Returning unmodified belief.
+
+1.156984870479716, 0.26688689000190613, -0.08880235234147152
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7497326734314108
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748746.296695]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748746.317735]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748746.326798]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.355331]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.1776237733837922, 0.2650492739399416, -0.08880235234147152
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7561102926209269
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.378722]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.18130929175952, 0.2647211282145908, -0.1628043126260311
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7573031616019855
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748746.433281]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748746.441583]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.463497]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.472998]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.479877]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.1944535045771245, 0.2625620845636777, -0.1628043126260311
+[INFO] [1724748746.499717]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+This is the path point
+[31m[ERROR] [1724748746.515223]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[1. 0. 1.]
+Distance:
+0.7626446384558108
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.556239]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.2083279514401515, 0.26028309404326944, -0.14800392056911918
+This is the path point
+[31m[ERROR] [1724748746.566141]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[1. 0. 1.]
+Distance:
+0.7684930945099303
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748746.571800]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Warning: Sum of belief is zero. Returning unmodified belief.
+[31m[ERROR] [1724748746.584131]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.594060]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.599772]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.610202]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.623170]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.2280900415491307, 0.25733668186794684, -0.16280431262603107
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7769001680736048
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748746.654044]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.660367]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748746.669511]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.679157]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.234662147957933, 0.2562571600424903, -0.2960078411382383
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7798844373830605
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+Warning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.702779]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.718851]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.2417404993735806, 0.2540984932094254, -0.14800392056911915
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7840966310792552
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748746.731534]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.738350]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.760424]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.767349]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748746.773675]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.780317]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.792211]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.2549152261129, 0.252134218425877, -0.14800392056911915
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7901170797759435
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.815960]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mWarning: Sum of belief is zero. Returning unmodified belief.
+[INFO] [1724748746.825788]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.832691]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.856184]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.2754092454851746, 0.24907867987369064, -0.14800392056911915
+This is the path point
+[1. 0. 1.]
+Distance:
+0.7998331585518021
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.879350]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748746.898786]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.906098]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.924341]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.2819966088548345, 0.24809654248191645, -0.16280431262603107
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8030447663942993
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.951436]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.2944105876270164, 0.24605744570049853, -0.17760470468294298
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8093867859623988
+This is the speed:
+0.3
+[INFO] [1724748746.960675]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748746.973446]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748746.986477]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748746.996190]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.002347]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.008845]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.30679302844302, 0.2438348472036165, -0.1924050967398549
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8160316786772543
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.057724]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.063961]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.075504]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.088381]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.3176884906628459, 0.2417122471823236, -0.2072054887967668
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8221473670656122
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.103208]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.113560]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.137007]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.155123]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.3299997260368712, 0.23912414590812295, -0.22200588085367873
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8293563073398872
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.175651]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.183486]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.193347]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.200422]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.226162]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.3422713095224785, 0.2363541236345763, -0.23680627291059064
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8368420841545603
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748747.233711]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.248232]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.255334]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.264695]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.270104]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.284495]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.3487456149239958, 0.2347916513666178, -0.22200588085367873
+This is the path point
+[1. 0. 1.][31m[ERROR] [1724748747.295353]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+Distance:
+0.8409324115212493
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.317944]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.324774]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.330420]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.338228]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.368957634782643, 0.23022926173959982, -0.22200588085367873
+This is the path point
+[INFO] [1724748747.362728]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[1. 0. 1.]
+Distance:
+0.8536256355958178
+This is the speed:
+0.3
+[31m[ERROR] [1724748747.369619]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.376947]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.384341]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.403016]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.409619]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.417186]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.423970]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.3819510761203448, 0.22729629697937398, -0.22200588085367873
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8619499041193041
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.433724]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.439643]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.446068]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.455519]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.484705]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.491352]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.497754]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.3884477967891957, 0.22582981459926105, -0.35520940936588596
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8661588577124839
+This is the speed:
+0.3
+0
+This is the flag:
+[31m[ERROR] [1724748747.512807]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m1
+This is the i:
+2
+[INFO] [1724748747.527363]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.533562]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.539723]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.546770]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.4009366090252577, 0.22119717291082786, -0.35520940936588596
+This is the path point
+[INFO] [1724748747.577456]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[1. 0. 1.]
+Distance:
+0.8759474915420212
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748747.584417]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.592104]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.605833]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.626212]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.4141192441633232, 0.21630716223970392, -0.3700098014227979
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8863798352530295
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748747.658069]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.669321]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.675067]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.693713]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.699796]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.710160]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.718733]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.4272280640562043, 0.2112225860958081, -0.3848101934797098
+This is the path point
+[1. 0. 1.]
+Distance:
+0.8970471712249012
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+
+1.4340870815257178, 0.2084446766997904, -0.23680627291059064
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9027687545503635
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.772111]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.778738]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.785641]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.795072]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.4412807541940704, 0.20670859640205871, -0.3848101934797098
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9077664650362886
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.831718]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.838402]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.844393]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.4543128873861462, 0.20143056854962504, -0.3996105855366217
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9187564075924108
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748747.857769]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748747.867501]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.905440]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.923903]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.933024]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.464538617781163, 0.1971118921641484, -0.17760470468294298
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9275912036636977
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748747.962519]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.974859]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748747.983943]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748747.990468]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.004645]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.010624]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.4776494374686961, 0.19475855257921448, -0.17760470468294298
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9362493117532763
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.021795]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.027805]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.048669]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.055339]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.4914886360277588, 0.1922744719062287, -0.1924050967398549
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9455060063684358
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.067303]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.085398]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.101773]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.4943940926197123, 0.19170844523388392, -0.13320352851220724
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9475023780041366
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.112126]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.130501]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.138526]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.161670]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.5075964473883892, 0.18993936958738997, -0.16280431262603107
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9559562638247572
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.174854]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.184410]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.514898787842614, 0.18873990089243825, -0.16280431262603107
+This is the path point
+[1. 0. 1.]
+Distance:
+0.960866124975693
+This is the speed:[31m[ERROR] [1724748748.199383]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.224014]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.233445]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.244030]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.256025]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.5280430006602184, 0.18658085724152515, -0.16280431262603107
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9697835389158651[INFO] [1724748748.276285]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.287110]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.298719]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.306156]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.318391]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.325235]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.335495]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.342003]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.535345341114443, 0.18538138854657343, -0.1924050967398549
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9747810607409483
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.357613]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.369085]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.376160]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.383407]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.403081]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.417103]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.542608982594327, 0.1839663218657115, -0.1924050967398549
+This is the path point
+[1. 0. 1.]
+Distance:
+0.9799670769170902
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.424215]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.433049]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.443242]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.5491462599262225, 0.18269276185293573, -0.32560862525206213[31m[ERROR] [1724748748.461722]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+This is the path point
+[INFO] [1724748748.468443]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[1. 0. 1.]
+Distance:
+0.98465869026711
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.489280]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.500107]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.513766]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.521437]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.5617667109747486, 0.17843177424291176, -0.32560862525206213
+This is the path point
+[1. 0. 1.]
+Distance:[31m[ERROR] [1724748748.528697]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0.9952668924128023
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.539806]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.562635]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m
+1.5680769364990117, 0.17630128043789978, -0.3108082331951502
+This is the path point
+[1. 0. 1.]
+[INFO] [1724748748.570054]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+Distance:
+1.000595315994606
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.578656]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.595697]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.602979]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.616033]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.623136]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+1.5814636301144187, 0.17200122141571292, -0.32560862525206213
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0117716790278866
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.650039]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.656443]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.662970]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.669211]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[33m[WARN] [1724748748.672188]: timeout exceeded while waiting for service /duckie1/lane_filter_node/switch
+[0m[INFO] [1724748748.681426]: FSM waiting for service ground_projection_node/switch
+
+1.5947852173323074, 0.16750351227179874, -0.3108082331951502
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0231421488907744
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.703706]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[INFO] [1724748748.706319]: FSM found service ground_projection_node/switch
+[31m[ERROR] [1724748748.718161]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.724931]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.601126282729079, 0.1654666422086576, -0.32560862525206213
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0284934287851204
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.739741]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.754604]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.760316]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.773384]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.780778]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.787005]: [/duckie1/fsm_node] Initialized.
+
+1.6137467337776052, 0.16120565459863362, -0.32560862525206213
+This is the path point[INFO] [1724748748.795174]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+[1. 0. 1.]
+Distance:
+1.0393560540546178
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748748.801736]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.807815]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.617252414624418, 0.1600220469291825, -0.3996105855366217
+[31m[ERROR] [1724748748.835716]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0mThis is the path point
+[1. 0. 1.]
+Distance:
+1.0423835690400702
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.853406]: [/duckie1/anti_instagram_node] Node switched from [on] to [on]
+[INFO] [1724748748.865061]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.873334]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.882533]: [/duckie1/line_detector_node] Node switched from [on] to [on]
+[INFO] [1724748748.894192]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.6308867218177738, 0.15426381174854698, -0.3996105855366217
+This is the path point
+[31m[ERROR] [1724748748.901272]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[1. 0. 1.]
+Distance:
+1.0551245215063834
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.919091]: [/duckie1/ground_projection_node] Node switched from [on] to [on]
+[INFO] [1724748748.930024]: [/duckie1/fsm_node] FSMState: NORMAL_JOYSTICK_CONTROL
+[INFO] [1724748748.931899]: [/duckie1/car_cmd_switch_node] Car cmd switched to joystick in state NORMAL_JOYSTICK_CONTROL.
+[INFO] [1724748748.936081]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748748.948897]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748748.957646]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.6377038754144517, 0.15138469415822922, -0.5476145061057409
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0615150352338552
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748748.963564]: [/duckie1/led_emitter_node] Pattern changed to ('GREEN'), cycle: 0 
+[31m[ERROR] [1724748748.978628]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748748.991302]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.644021933099159, 0.1475317669136156, -0.39961058553662177
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0683942805604119
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[31m[ERROR] [1724748749.006993]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748749.016248]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748749.022329]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748749.043797]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748749.050045]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748749.055992]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.6631099631698572, 0.13947023766072586, -0.4292113696504456
+This is the path point
+[1. 0. 1.]
+Distance:
+1.0863822049015792
+This is the speed:
+0.3[31m[ERROR] [1724748749.063643]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748749.074535]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748749.085511]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0m[INFO] [1724748749.094041]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+[31m[ERROR] [1724748749.100052]: [/duckie1/lane_controller_node] phi_err too large/small, thresholding it!
+[0m[INFO] [1724748749.113749]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]
+
+1.6698389186746103, 0.13639061770452574, -0.4292113696504456
+[31m[ERROR] [1724748749.126233]: [/duckie1/lane_controller_node] d_err too large, thresholding it!
+[0mThis is the path point
+[1. 0. 1.]
+Distance:
+1.0929342808055487
+This is the speed:
+0.3
+0
+This is the flag:
+1
+This is the i:
+2
+[INFO] [1724748749.136940]: [/duckie1/lane_controller_node] Health status changed [ERROR] -> [ERROR]

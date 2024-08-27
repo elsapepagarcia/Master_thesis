@@ -1,0 +1,267 @@
+==> Entrypoint
+   INFO: Network configured successfully.
+WARNING: robot_type file does not exist. Using 'duckiebot' as default type.
+WARNING: robot_configuration file does not exist.
+WARNING: robot_hardware file does not exist.
+<== Entrypoint
+==> Launching app...
+[INFO] [1724422018.220775]: [/twist_control_node] Initializing...
+[INFO] [1724422018.407972]: [/twist_control_node] Health status changed [STARTING] -> [STARTED]
+[INFO] [1724422018.577336]: Calibrating IMU, please keep it stationary...
+[INFO] [1724422025.640092]: Right encoder resolution: 135
+[INFO] [1724422025.640976]: Left encoder resolution: 135
+[INFO] [1724422025.641081]: Orientation_callback: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422025.687117]: Right encoder type: 1
+[INFO] [1724422025.700464]: Left encoder type: 1
+[INFO] [1724422025.714728]: Angular velocity_callback: x: -0.0334410413931738
+y: 0.010392036767599824
+z: -0.0063950995492922
+[INFO] [1724422025.791803]: Linear acceleration_callback: x: 0.28490999755859375
+y: -0.20350714111328125
+z: 8.738836059570312
+Here!
+0
+0
+[INFO] [1724422026.663300]: Calibration complete: ax_bias=0.3423708374023439, ay_bias=-0.19553444958496086
+[INFO] [1724422026.688631]: Wheel encoder ticks [LEFT, RIGHT]: 0, 0
+[INFO] [1724422026.704989]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422026.717675]: Angular: x: -0.023049004625573973
+y: 0.012390505376753637
+z: 0.0010658499248820332
+[INFO] [1724422026.733592]: Acceleration: x: 0.3591302490234375
+y: -0.16280571289062498
+z: 8.626308581542968
+This is self._ticks_right_prev
+702
+This is self._ticks_right
+0
+[INFO] [1724422026.756734]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422026.771379]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422026.785363]: Angular: x: -0.033041347671343035
+y: 0.01532159267017923
+z: -0.008926493120887028
+[INFO] [1724422026.801653]: Acceleration: x: 0.354341845703125
+y: -0.24899697265624998
+z: 8.616731774902343
+[INFO] [1724422026.856780]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422026.871021]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422026.887862]: Angular: x: -0.02598009191899956
+y: 0.006128637068071691
+z: -0.004663093421358896
+[INFO] [1724422026.907143]: Acceleration: x: 0.36152445068359373
+y: -0.296881005859375
+z: 8.588001354980468
+This is self._ticks_right_prev
+0
+This is self._ticks_right
+702
+This is self._ticks_left_prev
+0
+This is self._ticks_left
+692
+[INFO] [1724422026.956706]: Wheel encoder ticks [LEFT, RIGHT]: 692, 0
+[INFO] [1724422026.973002]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422026.986900]: Angular: x: -0.026646248122050836
+y: 0.010392036767599824
+z: -0.004929555902579405
+[INFO] [1724422027.001795]: Acceleration: x: 0.3016694091796875
+y: -0.19871873779296872
+z: 8.786720092773438
+[INFO] [1724422027.056748]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422027.069919]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.084601]: Angular: x: -0.02744563556571236
+y: 0.017186830038722786
+z: -0.00159877488732305
+[INFO] [1724422027.100137]: Acceleration: x: 0.3495534423828125
+y: -0.15562310791015624
+z: 8.681375219726561
+[INFO] [1724422027.156780]: Wheel encoder ticks [LEFT, RIGHT]: 692, 0
+[INFO] [1724422027.172389]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.185493]: Angular: x: -0.027978560528153375
+y: 0.015987748873230498
+z: -0.009059724361497283
+[INFO] [1724422027.200469]: Acceleration: x: 0.32561142578124996
+y: -0.15083470458984374
+z: 8.633491186523438
+[INFO] [1724422027.256775]: Wheel encoder ticks [LEFT, RIGHT]: 692, 702
+[INFO] [1724422027.270623]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.285257]: Angular: x: -0.03264165394951227
+y: 0.011457886692481857
+z: -0.01052526800821008
+[INFO] [1724422027.300354]: Acceleration: x: 0.3232172241210937
+y: -0.17956512451171874
+z: 8.530540515136718
+This is self._ticks_right_prev
+702
+This is self._ticks_right
+0
+This is self._ticks_left_prev
+0
+This is self._ticks_left
+692
+[INFO] [1724422027.356780]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422027.372422]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.387122]: Angular: x: -0.027978560528153375
+y: 0.017852986241774057
+z: -0.007993874436615249
+[INFO] [1724422027.400599]: Acceleration: x: 0.3854664672851562
+y: -0.19871873779296872
+z: 8.628702783203124
+This is self._ticks_right_prev
+0
+This is self._ticks_right
+702
+This is self._ticks_left_prev
+692
+This is self._ticks_left
+0
+[INFO] [1724422027.457075]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422027.481490]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.502139]: Angular: x: -0.03011026037791744
+y: 0.0074609494741742334
+z: -0.0037304747370871167
+[INFO] [1724422027.519549]: Acceleration: x: 0.3854664672851562
+y: -0.2442085693359375
+z: 8.652644799804687
+This is self._ticks_right_prev
+702
+This is self._ticks_right
+0
+[INFO] [1724422027.566551]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422027.606431]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.655070]: Angular: x: -0.02971056665608668
+y: 0.014255742745297196
+z: -0.007727411955394742
+[INFO] [1724422027.669802]: Acceleration: x: 0.33518823242187495
+y: -0.13168109130859373
+z: 8.690952026367187
+This is self._ticks_right_prev
+0
+This is self._ticks_right
+702
+[INFO] [1724422027.686350]: Wheel encoder ticks [LEFT, RIGHT]: 0, 0
+[INFO] [1724422027.740816]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.757271]: Angular: x: -0.03357427263378405
+y: 0.010125574286379316
+z: -0.008526799399056265
+[INFO] [1724422027.775351]: Acceleration: x: 0.32561142578124996
+y: -0.11731588134765625
+z: 8.667010009765624
+[INFO] [1724422027.826581]: Wheel encoder ticks [LEFT, RIGHT]: 692, 0
+[INFO] [1724422027.843393]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.860046]: Angular: x: -0.02624655440022007
+y: 0.007061255752343471
+z: -0.0006661562030512709
+[INFO] [1724422027.877527]: Acceleration: x: 0.4285620971679687
+y: -0.22744915771484372
+z: 8.59997236328125
+This is self._ticks_right_prev
+702
+This is self._ticks_right
+0
+[INFO] [1724422027.928374]: Wheel encoder ticks [LEFT, RIGHT]: 692, 702
+[INFO] [1724422027.944916]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422027.959469]: Angular: x: -0.036105666205378875
+y: 0.013589586542245924
+z: -0.006661562030512709
+[INFO] [1724422028.012228]: Acceleration: x: 0.28012159423828126
+y: -0.21787235107421873
+z: 8.681375219726561
+[INFO] [1724422028.033043]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422028.047528]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422028.095342]: Angular: x: -0.03170903526524049
+y: 0.005062787143189658
+z: -0.007727411955394742
+[INFO] [1724422028.112052]: Acceleration: x: 0.3591302490234375
+y: -0.2059013427734375
+z: 8.59997236328125
+This is self._ticks_right_prev
+0
+This is self._ticks_right
+702
+This is self._ticks_left_prev
+0
+This is self._ticks_left
+692
+[INFO] [1724422028.129884]: Wheel encoder ticks [LEFT, RIGHT]: 692, 0
+[INFO] [1724422028.146447]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422028.196587]: Angular: x: -0.029577335415476424
+y: 0.014788667707738212
+z: -0.006128637068071691
+[INFO] [1724422028.212593]: Acceleration: x: 0.34237083740234375
+y: -0.19871873779296872
+z: 8.710105639648438
+This is self._ticks_right_prev
+702
+This is self._ticks_right
+0
+This is self._ticks_left_prev
+692
+This is self._ticks_left
+0
+[INFO] [1724422028.232406]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422028.292834]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+[INFO] [1724422028.313066]: Angular: x: -0.032241960227681506
+y: 0.0075941807147844875
+z: -0.0058621745868511835
+[INFO] [1724422028.334001]: Acceleration: x: 0.34237083740234375
+y: -0.229843359375
+z: 8.652644799804687
+[INFO] [1724422028.383059]: Wheel encoder ticks [LEFT, RIGHT]: 0, 702
+[INFO] [1724422028.401956]: Orientation: x: 0.0
+y: 0.0
+z: 0.0
+w: 0.0
+^C[INFO] [1724422028.413438]: [/twist_control_node] Received shutdown request.
+

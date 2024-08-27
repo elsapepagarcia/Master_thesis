@@ -78,14 +78,15 @@ def pose_estimation(
         ]
     )
 	
-    print("This is the theta_prev")
-    print(theta_prev)
-    print(delta_phi_left)
-    print(delta_phi_right)
-    print(np.cos(theta_prev))
-    print(np.sin(theta_prev))
-    print((delta_phi_left + delta_phi_right) * np.cos(theta_prev) / 2)
-    print((delta_phi_left + delta_phi_right) * np.sin(theta_prev) / 2)
+    # LAST COMMENTED	
+    #print("This is the theta_prev")
+    #print(theta_prev)
+    #print(delta_phi_left)
+    #print(delta_phi_right)
+    #print(np.cos(theta_prev))
+    #print(np.sin(theta_prev))
+    #print((delta_phi_left + delta_phi_right) * np.cos(theta_prev) / 2)
+    #print((delta_phi_left + delta_phi_right) * np.sin(theta_prev) / 2)
     x_curr, y_curr, theta_curr = np.array(w).dot(x)
     
     #print("Lidia here, this is the current position:")
@@ -174,14 +175,17 @@ def pose_estimation(
     
     action = np.array([v, omega])
 
-    print("This is the current position:")
-    print(x_curr)
-    print(y_curr)
-    print(theta_curr*180/np.pi)
-    print(theta_curr)
-    print("Increment:")
-    print(x_curr - x_prev)
-    print(y_curr - y_prev)
+    # LAST COMMENTED 
+    #print("This is the current position:")
+    #print(x_curr)
+    #print(y_curr)
+    #print(theta_curr*180/np.pi)
+    #print(theta_curr)
+    #print("Increment:")
+    #print(x_curr - x_prev)
+    #print(y_curr - y_prev)
+    
+    
     #print("This is the target angle:")
     #print(target_angle)
     #print("This is the angle error:")

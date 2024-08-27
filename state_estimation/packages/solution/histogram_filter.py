@@ -114,6 +114,7 @@ def histogram_predict(belief, left_encoder_ticks, right_encoder_ticks, grid_spec
     #print(f"The current directory is: {current_directory}")
     
     # ALSO KEEP THIS #
+    #print("This is the position")
     print("\n" + str(x_g) + ", " + str(y_g) + ", " + str(ang_g))
 
 

@@ -1,0 +1,5 @@
+
+dts :  The path '/home/lnt/delete_state-estimation' does not appear to be a Duckietown project. 
+    :  The metadata file '.dtproject' is missing.
+
+dts :  To report a bug, please also include the contents of /home/lnt/shell-debug-info.txt
