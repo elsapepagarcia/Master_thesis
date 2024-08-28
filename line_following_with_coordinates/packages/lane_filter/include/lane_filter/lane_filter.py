@@ -196,7 +196,7 @@ class LaneFilterHistogram(LaneFilterInterface):
             return
         self.belief = s_belief / np.sum(s_belief)
 
-        print("\n" + str(x_g) + ", " + str(y_g) + ", " + str(ang_g))
+        #print("\n" + str(x_g) + ", " + str(y_g) + ", " + str(ang_g))
         
     # prepare the segments for the creation of the belief arrays
     def prepareSegments(self, segments):

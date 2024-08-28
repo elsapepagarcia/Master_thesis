@@ -6,10 +6,12 @@ import numpy as np
 import rospy
 from cv_bridge import CvBridge
 from duckietown.dtros import DTROS, NodeType, TopicType
-from duckietown_msgs.msg import FSMState, LanePose, SegmentList, Twist2DStamped
+from duckietown_msgs.msg import FSMState, LanePose, SegmentList, Twist2DStamped, WheelEncoderStamped
 from lane_filter import LaneFilterHistogram
 from sensor_msgs.msg import Image
 from std_msgs.msg import String
+
+
 
 
 class LaneFilterNode(DTROS):
@@ -72,6 +74,16 @@ class LaneFilterNode(DTROS):
 
         self.sub_change_params = rospy.Subscriber("~change_params", String, self.cbTemporaryChangeParams)
 
+        self.sub_encoder_left = rospy.Subscriber(
+            "~left_wheel_encoder_node/tick", WheelEncoderStamped, self.cbProcessLeftEncoder, queue_size=1
+        )
+
+        self.sub_encoder_right = rospy.Subscriber(
+            "~right_wheel_encoder_node/tick", WheelEncoderStamped, self.cbProcessRightEncoder, queue_size=1
+        )
+
+
+
         # Publishers
         self.pub_lane_pose = rospy.Publisher(
             "~lane_pose", LanePose, queue_size=1, dt_topic_type=TopicType.PERCEPTION
@@ -85,10 +97,38 @@ class LaneFilterNode(DTROS):
             "~seglist_filtered", SegmentList, queue_size=1, dt_topic_type=TopicType.DEBUG
         )
 
+        self.right_encoder_ticks = 0
+        self.left_encoder_ticks = 0
+        self.right_encoder_ticks_delta = 0
+        self.left_encoder_ticks_delta = 0
+        self.last_encoder_stamp = None
+        self.x_g = 0
+        self.y_g = 0
+        self.ang = 0
+
+        #rospy.Timer(rospy.Duration(1 / self._predict_freq), self.cbProcessSegments)
+
         # FSM
         # self.sub_switch = rospy.Subscriber(
         #     "~switch", BoolStamped, self.cbSwitch, queue_size=1)
         self.sub_fsm_mode = rospy.Subscriber("~fsm_mode", FSMState, self.cbMode, queue_size=1)
+
+
+    def cbProcessLeftEncoder(self, left_encoder_msg):
+        if not self.filter.initialized:
+            self.filter.encoder_resolution = left_encoder_msg.resolution
+            self.filter.initialized = True
+        self.left_encoder_ticks_delta = left_encoder_msg.data - self.left_encoder_ticks
+        self.last_encoder_stamp = left_encoder_msg.header.stamp
+
+    def cbProcessRightEncoder(self, right_encoder_msg):
+        if not self.filter.initialized:
+            self.filter.encoder_resolution = right_encoder_msg.resolution
+            self.filter.initialized = True
+        self.right_encoder_ticks_delta = right_encoder_msg.data - self.right_encoder_ticks
+        self.last_encoder_stamp = right_encoder_msg.header.stamp
+
+
 
     def cbTemporaryChangeParams(self, msg):
         """Callback that changes temporarily the filter's parameters.
@@ -140,12 +180,32 @@ class LaneFilterNode(DTROS):
         timestamp_before_processing = rospy.Time.now()
 
         # Step 1: predict
+
+        
+        
         current_time = rospy.get_time()
         if self.currentVelocity:
             dt = current_time - self.t_last_update
             #print("This is dt")
             #print(dt)
             self.filter.predict(dt=dt, v=self.currentVelocity.v, w=self.currentVelocity.omega)
+            # Calculate v and w from ticks using kinematics
+            ticks_to_meters = 2*np.pi*0.038/135
+            v_left =  self.left_encoder_ticks_delta * ticks_to_meters
+            v_right = self.right_encoder_ticks_delta * ticks_to_meters
+            v = (v_left + v_right)/2
+            w = (v_right - v_left)/0.1
+            # KEEP THIS #
+            self.x_g = self.x_g + v*np.cos(self.ang)
+            self.y_g = self.y_g + v*np.sin(self.ang)
+            self.ang = self.ang + w
+
+            self.left_encoder_ticks += self.left_encoder_ticks_delta
+            self.right_encoder_ticks += self.right_encoder_ticks_delta
+            self.left_encoder_ticks_delta = 0
+            self.right_encoder_ticks_delta = 0
+
+            print("\n" + str(self.x_g) + ", " + str(self.y_g) + ", " + str(self.ang))
 
         self.t_last_update = current_time
 
