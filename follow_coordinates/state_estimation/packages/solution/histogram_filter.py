@@ -115,7 +115,7 @@ def histogram_predict(belief, left_encoder_ticks, right_encoder_ticks, grid_spec
     
     # ALSO KEEP THIS #
     #print("This is the position")
-    print("\n" + str(x_g) + ", " + str(y_g) + ", " + str(ang_g))
+    #print("\n" + str(x_g) + ", " + str(y_g) + ", " + str(ang_g))
 
 
     return belief, x_g, y_g, ang_g

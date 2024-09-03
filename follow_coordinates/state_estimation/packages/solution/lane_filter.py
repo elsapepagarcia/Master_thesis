@@ -112,6 +112,8 @@ class LaneFilterHistogram:
         self.x = 0
         self.y = 0
         self.angle = 0
+        self.error_x = 0
+        self.error_y = 0
 
         # Additional variables
         self.initialized = False
@@ -132,19 +134,59 @@ class LaneFilterHistogram:
             self.robot_spec,
             self.cov_mask,
         )
+
+        print("\n" + str(self.x) + ", " + str(self.y) + ", " + str(self.angle))
+        #old_x = self.x
+        #old_y = self.y
+        self.x = self.x + self.error_x
+        self.y = self.y + self.error_y
+        print("\nThis " + str(self.x) + ", " + str(self.y) + ", " + str(self.angle))
+        
+        #print("This is after adding the error " + str(self.x) + " " + str(self.y))
+        #print("This is the error:" + str(self.error_x) + " " + str(self.error_y))
+        
+        self.angle = self.angle #+ np.pi/2
         
         distance = np.sqrt((path_point[0] - self.x)**2 + (path_point[2] - self.y)**2)
-        print("This is the path point")
-        print(path_point)
-        print("Distance:")
-        print(distance)
-        ka = 0.3
-        kp = 0
+        #target_angle = np.arctan2(path_point[0]-self.x, path_point[2] - self.y)
+        target_angle = np.arctan2(path_point[2] - self.y, path_point[0] - self.x)
+        print("This is the target_angle" + str(target_angle))
+        if target_angle < 0:
+            if target_angle < -np.pi/2:
+                target_angle = 2*np.pi + target_angle
+        angle_error = target_angle - self.angle
         
+        #if target_angle >= 0:
+        #    if (self.angle - np.pi) > target_angle:
+        #        angle_error = 2*np.pi - self.angle + target_angle
+
+        print("This is the target_angle" + str(target_angle))
+        print("This angle_error" + str(angle_error))
+        print("This is the angle" + str(self.angle))
+
+        print("This is the path point" + str(path_point))
+        #print(path_point)
+        print("Distance:" + str(distance))
+        print("This is i:")
+        #print(distance)
+        #ka = 0.3
+        #kp = 0
+        
+        if i == 0:
+            ka = 0
+            kp = 0
+        else:
+            ka = 0.10
+            kp = 0.45
+            
+        if i == 4:
+            ka = 0
+            kp = 0
+
         v = ka
-        omega = kp
+        omega = 3*kp*angle_error
         
-        if (path_point[0] == 1) & (path_point[2] == 0.0):
+        '''if (path_point[0] == 1) & (path_point[2] == 0.0):
             v = ka
             omega = 0
         elif (path_point[0] == 1) & (path_point[2] == 1.0):
@@ -172,15 +214,28 @@ class LaneFilterHistogram:
             if i < 4:
                 i = i + 1
             if i ==4:
-                i = 0
-        print("This is the speed:")
-        print(v)
-        print(omega)
+                i = 0'''
         
-        print("This is the flag:")
-        print(flag)
-        print("This is the i:")
-        print(i)
+        if distance <= 0.4:
+            if i < 4:
+                i = i + 1
+                if i == 4:
+                    i = 0
+            #self.error_x = path_point[0] - old_x
+            #self.error_y = path_point[2] - old_y
+            
+
+                
+
+
+        print("This is the speed:" + str(omega))
+        #print(v)
+        #print(omega)
+        
+        #print("This is the flag:")
+        #print(flag)
+        #print("This is the i:")
+        #print(i)
         return v, omega, flag, i
 		
           

@@ -1,8 +1,8 @@
 # Define the start and end words
-#start_word = "[INFO]"  # Replace with the actual start word
+start_word = "[INFO]"  # Replace with the actual start word
 #end_word = "[0m"  # Replace with the actual end word
-#start_word = "[0m" 
-#start_word = "[31m"  # Replace with the actual end word
+start_word = "[0m" 
+start_word = "[31m"  # Replace with the actual end word
 #end_word = "d_err too large, thresholding it!"
 #end_word = "m"
 #end_word = "[ERROR] -> [ERROR]"
@@ -11,8 +11,9 @@ end_word = ""
 #end_word = "\n"  # Replace with the actual end word
 start_word = "Warning"  # Replace with the actual start word
 #end_word = "belief."  # Replace with the actual end word
-#start_word = "This"
+start_word = "Distance"
 #end_word = "position"
+#start_word = "This"
 
 # Step 1: Read the file
 filename = 'modified_data.txt'  # Replace with your .txt file path
