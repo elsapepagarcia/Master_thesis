@@ -13,7 +13,7 @@ start_word = "Warning"  # Replace with the actual start word
 #end_word = "belief."  # Replace with the actual end word
 start_word = "Distance"
 #end_word = "position"
-#start_word = "This"
+start_word = "This"
 
 # Step 1: Read the file
 filename = 'modified_data.txt'  # Replace with your .txt file path

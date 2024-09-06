@@ -18,7 +18,7 @@ import numpy as np
 from cv_bridge import CvBridge
 
 
-path_points = np.array([[0.0, 0.00, 0.0], [1.0, 0.00, 0.0],[1.0, 0.00, 1.0],[0.0, 0.00, 1.0]])
+path_points = np.array([[0.0, 0.00, 0.0], [1.0, 0.00, 0.0],[1.0, 0.00, 1.0],[0.0, 0.00, 1.0], [0.0, 0.00, 0.0]])
 path_point = path_points[1]
 i = 1
 flag = 0

@@ -154,6 +154,11 @@ class LaneFilterHistogram:
         if target_angle < 0:
             if target_angle < -np.pi/2:
                 target_angle = 2*np.pi + target_angle
+            angle_error = target_angle - self.angle
+            
+            if angle_error < -np.pi:
+                target_angle = 2*np.pi + target_angle
+        
         angle_error = target_angle - self.angle
         
         #if target_angle >= 0:
@@ -167,7 +172,7 @@ class LaneFilterHistogram:
         print("This is the path point" + str(path_point))
         #print(path_point)
         print("Distance:" + str(distance))
-        print("This is i:")
+        print("This is i:" + str(i))
         #print(distance)
         #ka = 0.3
         #kp = 0
@@ -179,7 +184,7 @@ class LaneFilterHistogram:
             ka = 0.10
             kp = 0.45
             
-        if i == 4:
+        if i == 5:
             ka = 0
             kp = 0
 
@@ -217,10 +222,12 @@ class LaneFilterHistogram:
                 i = 0'''
         
         if distance <= 0.4:
-            if i < 4:
-                i = i + 1
-                if i == 4:
-                    i = 0
+            if i < 5:
+            	if flag == 0:
+                    i = i + 1
+                    if i == 5:
+                        i = 0
+                        flag = 1
             #self.error_x = path_point[0] - old_x
             #self.error_y = path_point[2] - old_y
             
