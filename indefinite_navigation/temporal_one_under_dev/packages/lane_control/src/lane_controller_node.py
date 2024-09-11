@@ -243,8 +243,8 @@ class LaneControllerNode(DTROS):
         elif turn_type !=-1:
             rospy.loginfo("We go inside the lane_controller/turn type")
             if turn_type == 0:
-                v = 0.2
-                omega = 0.5
+                v = 0.4
+                omega = 0.2
                 self.forward_pose = True
 
                 self.forward_pose = True
