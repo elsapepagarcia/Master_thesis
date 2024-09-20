@@ -15,7 +15,7 @@ from duckietown_msgs.msg import (
 )
 
 from lane_controller.controller import LaneController
-
+from geometry_msgs.msg import Pose2D
 
 class LaneControllerNode(DTROS):
     """Computes control action.
@@ -134,6 +134,8 @@ class LaneControllerNode(DTROS):
             "~right_wheel_encoder_node/tick", WheelEncoderStamped, self.cbProcessRightEncoder, queue_size=1
         )
 
+        rospy.Subscriber("/lane_filter_node/lane_position", Pose2D, self.position_callback)
+
         self.right_encoder_ticks = 0
         self.left_encoder_ticks = 0
         self.right_encoder_ticks_delta = 0
@@ -143,8 +145,18 @@ class LaneControllerNode(DTROS):
         self.y_g = 0
         self.ang = 0
 
+        self.i = 0
+        self.path_point = np.array([[0.81, 0.0, 0.71], [1.2, 0.0, 1.21]]) # Derecha
+
 
         self.log("Initialized!")
+
+
+    def position_callback(self, msg):
+        rospy.loginfo("Received Position - x: {}, y: {}, theta: {}".format(msg.x, msg.y, msg.theta))
+        self.x_g = msg.x
+        self.y_g = msg.y
+        self.ang = msg.theta
 
 
     def cbProcessLeftEncoder(self, left_encoder_msg):
@@ -242,25 +254,38 @@ class LaneControllerNode(DTROS):
         if self.last_s is not None:
             dt = current_s - self.last_s
 
-        if self.at_stop_line or self.at_obstacle_stop_line:
+        if self.i == 2:
+            v = 0
+            omega = 0
+
+            car_control_msg = Twist2DStamped()
+            car_control_msg.header = pose_msg.header
+            car_control_msg.v = v
+            car_control_msg.omega = omega
+
+            self.publishCmd(car_control_msg)
+
+
+        elif self.at_stop_line or self.at_obstacle_stop_line:
             
             # IZQUIERDA path_point = np.array([0.85, 0.0, -0.71])
-            path_point = np.array([0.65, 0.0, -0.71]) # Derecha
+            path_point = self.path_point[self.i]
+            self.i = self.i + 1
 
-            ticks_to_meters = 2*np.pi*0.038/135
-            v_left =  self.left_encoder_ticks_delta * ticks_to_meters
-            v_right = self.right_encoder_ticks_delta * ticks_to_meters
-            v = (v_left + v_right)/2
-            w = (v_right - v_left)/0.1
+            #ticks_to_meters = 2*np.pi*0.038/135
+            #v_left =  self.left_encoder_ticks_delta * ticks_to_meters
+            #v_right = self.right_encoder_ticks_delta * ticks_to_meters
+            #v = (v_left + v_right)/2
+            #w = (v_right - v_left)/0.1
             # KEEP THIS #
-            self.x_g = self.x_g + v*np.cos(self.ang)
-            self.y_g = self.y_g + v*np.sin(self.ang)
-            self.ang = self.ang + w
+            #self.x_g = self.x_g + v*np.cos(self.ang)
+            #self.y_g = self.y_g + v*np.sin(self.ang)
+            #self.ang = self.ang + w
 
-            self.left_encoder_ticks += self.left_encoder_ticks_delta
-            self.right_encoder_ticks += self.right_encoder_ticks_delta
-            self.left_encoder_ticks_delta = 0
-            self.right_encoder_ticks_delta = 0
+            #self.left_encoder_ticks += self.left_encoder_ticks_delta
+            #self.right_encoder_ticks += self.right_encoder_ticks_delta
+            #self.left_encoder_ticks_delta = 0
+            #self.right_encoder_ticks_delta = 0
 
 
 
@@ -285,9 +310,23 @@ class LaneControllerNode(DTROS):
             #        angle_error = 2*np.pi - self.angle + target_angle
 
 
-            ka = 0.6
-            kp = 2.5#1.1 #0.45
-                
+            if path_point[2] > self.y_g or path_point[0] < self.x_g:
+                # Left
+                ka = 0.5
+                kp = 1.1 #0.45
+            else:
+                ka = 0.6
+                kp = 2.5
+            
+            print("This is the point position: ")
+            print(self.i)
+            print("This is the position:")
+            print(self.x_g)
+            print(self.y_g)
+            print("This is the point: ")
+            print(path_point[0])
+            print(path_point[2])
+
             v = ka
             omega = 3*kp*angle_error
             
@@ -304,13 +343,13 @@ class LaneControllerNode(DTROS):
             car_control_msg.omega = omega
 
             self.publishCmd(car_control_msg)
-            time.sleep(4)
+            time.sleep(3)
 
-            car_control_msg.v = 0
-            car_control_msg.omega = 0
+            #car_control_msg.v = 0
+            #car_control_msg.omega = 0
 
-            self.publishCmd(car_control_msg)
-            time.sleep(5)
+            #self.publishCmd(car_control_msg)
+            #time.sleep(5)
 
 
 

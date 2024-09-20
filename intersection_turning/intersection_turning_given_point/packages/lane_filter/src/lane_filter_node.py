@@ -10,7 +10,7 @@ from duckietown_msgs.msg import FSMState, LanePose, SegmentList, Twist2DStamped,
 from lane_filter import LaneFilterHistogram
 from sensor_msgs.msg import Image
 from std_msgs.msg import String
-
+from geometry_msgs.msg import Pose2D
 
 
 
@@ -96,6 +96,11 @@ class LaneFilterNode(DTROS):
         self.pub_seglist_filtered = rospy.Publisher(
             "~seglist_filtered", SegmentList, queue_size=1, dt_topic_type=TopicType.DEBUG
         )
+
+        # Create the publisher for the position (x, y, theta)
+        self.pub_position = rospy.Publisher("/lane_filter_node/lane_position", Pose2D, queue_size=1, dt_topic_type=TopicType.PERCEPTION
+)
+
 
         self.right_encoder_ticks = 0
         self.left_encoder_ticks = 0
@@ -199,6 +204,13 @@ class LaneFilterNode(DTROS):
             self.x_g = self.x_g + v*np.cos(self.ang)
             self.y_g = self.y_g + v*np.sin(self.ang)
             self.ang = self.ang + w
+
+            # Publish the current position
+            pose_msg = Pose2D()
+            pose_msg.x = self.x_g
+            pose_msg.y = self.y_g
+            pose_msg.theta = self.ang
+            self.pub_position.publish(pose_msg)
 
             self.left_encoder_ticks += self.left_encoder_ticks_delta
             self.right_encoder_ticks += self.right_encoder_ticks_delta
