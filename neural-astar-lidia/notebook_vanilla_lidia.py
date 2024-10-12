@@ -16,14 +16,26 @@ vanilla_astar = VanillaAstar().to(device)
 #start = 2+22
 #end = 20 + (22*15)
 
-start = 24
-end = 36
+#FOR SUPER DENSE CIRCUIT
+#start = 24
+#end = 36
+
+num_rows = 5
+num_cols = 3
+
+start = 3
+end = 11
+
+start_idx = (start // num_cols, start % num_cols)
+end_idx = (end // num_cols, end % num_cols)
+
 
 #start = 1 + 5
 #end = 3 + (5*3)
 
 #dataloader = create_dataloader("./adj_matrix.npz", 0, 8)
-dataloader = create_dataloader("./super_dense_circuit.npz", start, end)
+#dataloader = create_dataloader("./super_dense_circuit.npz", start, end)
+dataloader = create_dataloader("./our_environment.npz", start, end)
 #dataloader = create_dataloader("./our_basic_circuit.npz", start, end)
 map_designs, start_maps, goal_maps = next(iter(dataloader))
 #print("Hola")
@@ -65,10 +77,10 @@ print("This is what was predicted:")
 print(na_outputs)
 
 fig, axes = plt.subplots(2, 1, figsize=[12, 4])
-axes[0].imshow(visualize_results(map_designs_tensor, na_outputs))
+axes[0].imshow(visualize_results(map_designs_tensor, na_outputs, scale=1, start=start_idx, end=end_idx))
 axes[0].set_title("Neural A*")
 axes[0].axis("off")
-axes[1].imshow(visualize_results(map_designs_tensor, va_outputs))
+axes[1].imshow(visualize_results(map_designs_tensor, va_outputs, start=start_idx, end=end_idx))
 axes[1].set_title("Vanilla A*")
 axes[1].axis("off")
 plt.show()

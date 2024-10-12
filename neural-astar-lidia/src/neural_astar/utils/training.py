@@ -14,7 +14,8 @@ import pytorch_lightning as pl
 import torch
 import torch.nn as nn
 import torch.optim
-from neural_astar.planner.astar import VanillaAstar
+#from neural_astar.planner.astar import VanillaAstar
+from .astar import VanillaAstar
 
 
 def load_from_ptl_checkpoint(checkpoint_path: str) -> dict:
@@ -30,7 +31,8 @@ def load_from_ptl_checkpoint(checkpoint_path: str) -> dict:
 
     ckpt_file = sorted(glob(f"{checkpoint_path}/**/*.ckpt", recursive=True))[-1]
     print(f"load {ckpt_file}")
-    state_dict = torch.load(ckpt_file)["state_dict"]
+    #state_dict = torch.load(ckpt_file)["state_dict"]
+    state_dict = torch.load(ckpt_file, map_location=torch.device('cpu'))["state_dict"]
     state_dict_extracted = dict()
     for key in state_dict:
         if "planner" in key:

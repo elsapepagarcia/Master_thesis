@@ -3,13 +3,14 @@ from __future__ import annotations, print_function
 import numpy as np
 import torch
 import torch.utils.data as data
-from neural_astar.planner.differentiable_astar import AstarOutput
+#from neural_astar.planner.differentiable_astar import AstarOutput
+from .differentiable_astar import AstarOutput
 from PIL import Image
 from torchvision.utils import make_grid
 
 
 def visualize_results(
-    map_designs: torch.tensor, planner_outputs: AstarOutput, scale: int = 1
+    map_designs: torch.tensor, planner_outputs: AstarOutput, start, end, scale: int = 1
 ) -> np.ndarray:
     """
     Create a visualization of search results
@@ -35,6 +36,36 @@ def visualize_results(
     an_array = paths.cpu().numpy()
     an_array = np.squeeze(an_array)
     print(an_array)
+    
+        
+    # Define the grid cell size in meters (59 cm)
+    cell_size = 0.59
+
+    # Find the coordinates of each point in the planned path
+    def get_coordinates(matrix, start_idx, cell_size):
+        coords = []
+        rows, cols = matrix.shape
+
+        # Iterate through the matrix to get the indices of the planned path (1s)
+        for i in range(rows):
+            for j in range(cols):
+                if matrix[i, j] == 1:  # Check if it's part of the path
+                    # Translate matrix indices (i, j) to real-world coordinates
+                    coord_x = (i - start_idx[0]) * cell_size  # Adjust row by start_idx
+                    coord_y = (j - start_idx[1]) * cell_size  # Adjust column by start_idx
+                    coords.append((coord_x, coord_y))
+        
+        return coords
+
+    # Get the coordinates of the planned path
+    path_coordinates = get_coordinates(an_array, start, cell_size)
+
+    # Print the path coordinates
+    print("Path coordinates (in meters):")
+    for coord in path_coordinates:
+        print(coord)
+        
+    
     print(np.where(an_array == 1))
     
     # Make sure all tensors are on the same device
@@ -115,54 +146,54 @@ class MazeDataset(data.Dataset):
     def _process(self, filename: str, start_idx: int, goal_idx: int):
         with np.load(filename) as f:
             with np.load(filename) as f:
-            	adj_map = f["out"]
-            	dims = f["dims"]
+                adj_map = f["out"]
+                dims = f["dims"]
             	# adjust adj_map
-            	map = np.zeros(dims)
-            	
-            	for i in range(adj_map.shape[0]):
-            		for j in range(adj_map.shape[1]):
-            			if adj_map[i, j] == 1:
-            				row_i, col_i = node_to_grid(i, dims)
-            				row_j, col_j = node_to_grid(j, dims)
-            				map[row_i, col_i] = 1
-            				map[row_j, col_j] = 1
-            	print("This is the map")
-            	print(map)
-            	print("This is the adjacent matrix")
-            	print(adj_map)
+                map = np.zeros(dims)
+                
+                for i in range(adj_map.shape[0]):
+                    for j in range(adj_map.shape[1]):
+                        if adj_map[i, j] == 1:
+                            row_i, col_i = node_to_grid(i, dims)
+                            row_j, col_j = node_to_grid(j, dims)
+                            map[row_i, col_i] = 1
+                            map[row_j, col_j] = 1
+                print("This is the map")
+                print(map)
+                print("This is the adjacent matrix")
+                print(adj_map)
             	# Start point
-            	start_map = np.zeros(dims)
-            	start_map.ravel()[start_idx] = 1.0
+                start_map = np.zeros(dims)
+                start_map.ravel()[start_idx] = 1.0
             	
             	# End point
-            	goal_map = np.zeros(dims)
+                goal_map = np.zeros(dims)
             	#print(goal_map)
             	#print(goal_map.ravel())
             	#print(dims)
-            	goal_map.ravel()[goal_idx] = 1.0
+                goal_map.ravel()[goal_idx] = 1.0
             	
-            	map = map.astype(np.float32)
-            	print("This is the map again")
-            	print(map)
-            	start_map = start_map.astype(np.float32)
-            	goal_map = goal_map.astype(np.float32)
+                map = map.astype(np.float32)
+                print("This is the map again")
+                print(map)
+                start_map = start_map.astype(np.float32)
+                goal_map = goal_map.astype(np.float32)
         
         return map, start_map, goal_map 
         #return map_designs, goal_maps, opt_policies, opt_dists
 
     def __getitem__(self, index: int):
-    	print(index)
-    	map = self.map
-    	print("And.. This is the map again")
-    	print(map)
-    	goal_map = self.goal_map
-    	start_map = self.start_map
-    	print("Type getitem:")
-    	print(type(map))
-    	print(map.shape)
-    	print(start_map.shape)
-    	print(goal_map.shape)
-    	return map, start_map, goal_map
-	
+        print(index)
+        map = self.map
+        print("And.. This is the map again")
+        print(map)
+        goal_map = self.goal_map
+        start_map = self.start_map
+        print("Type getitem:")
+        print(type(map))
+        print(map.shape)
+        print(start_map.shape)
+        print(goal_map.shape)
+        return map, start_map, goal_map
+
 
