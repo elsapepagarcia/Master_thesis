@@ -305,106 +305,125 @@ class LaneControllerNode(DTROS):
             self.pub_position.publish(pose_msg)
 
 
-        elif (self.at_stop_line or self.at_obstacle_stop_line) and (time.time() - self.time_end > 1):
+        elif (self.at_stop_line or self.at_obstacle_stop_line) and (time.time() - self.time_end > 0.5):
+        #elif (self.at_stop_line or self.at_obstacle_stop_line):
             
             # IZQUIERDA path_point = np.array([0.85, 0.0, -0.71])
             #self.path_point = self.path_points[self.i]
-            self.i = self.i + 1
-            if self.i != 3:
-                
-
-                #ticks_to_meters = 2*np.pi*0.038/135
-                #v_left =  self.left_encoder_ticks_delta * ticks_to_meters
-                #v_right = self.right_encoder_ticks_delta * ticks_to_meters
-                #v = (v_left + v_right)/2
-                #w = (v_right - v_left)/0.1
-                # KEEP THIS #
-                #self.x_g = self.x_g + v*np.cos(self.ang)
-                #self.y_g = self.y_g + v*np.sin(self.ang)
-                #self.ang = self.ang + w
-
-                #self.left_encoder_ticks += self.left_encoder_ticks_delta
-                #self.right_encoder_ticks += self.right_encoder_ticks_delta
-                #self.left_encoder_ticks_delta = 0
-                #self.right_encoder_ticks_delta = 0
-
-
-
-
-                self.angle = self.ang #+ np.pi/2
-                
-                #target_angle = np.arctan2(path_point[0]-self.x, path_point[2] - self.y)
-                target_angle = np.arctan2(self.path_point[2] - self.y_g, self.path_point[0] - self.x_g)
-                print("INTERSECTION!")
-                msg = BoolStamped()
-                msg.data = True
-                self.pub_flag_int.publish(msg)
-
-                print("This is the target_angle" + str(target_angle))
-                if target_angle < 0:
-                    if target_angle < -np.pi/2:
-                        target_angle = 2*np.pi + target_angle
-                    angle_error = target_angle - self.angle
+            if self.i != (len(self.path_points) - 1):
+                self.i = self.i + 1
+                if self.i != len(self.path_points):
                     
-                    if angle_error < -np.pi:
-                        target_angle = 2*np.pi + target_angle
-                
-                angle_error = target_angle - self.angle
 
-                
-                
-                #if target_angle >= 0:
-                #    if (self.angle - np.pi) > target_angle:
-                #        angle_error = 2*np.pi - self.angle + target_angle
+                    #ticks_to_meters = 2*np.pi*0.038/135
+                    #v_left =  self.left_encoder_ticks_delta * ticks_to_meters
+                    #v_right = self.right_encoder_ticks_delta * ticks_to_meters
+                    #v = (v_left + v_right)/2
+                    #w = (v_right - v_left)/0.1
+                    # KEEP THIS #
+                    #self.x_g = self.x_g + v*np.cos(self.ang)
+                    #self.y_g = self.y_g + v*np.sin(self.ang)
+                    #self.ang = self.ang + w
 
-
-                #if self.path_point[2] > self.y_g or self.path_point[0] < self.x_g:
-                if angle_error >= 0:
-                    # Left
-                    ka = 0.6
-                    kp = 0.9 #0.45
-                    print("LEFT: " + str(self.y_g) + ", " + str(self.x_g))
-                    print("This is angle_error: " + str(angle_error))
-                else:
-                    ka = 0.3
-                    kp = 1.1
-                    print("RIGHT: " + str(self.y_g) + ", " + str(self.x_g))
-                    print("This is angle_error: " + str(angle_error))
-                
-                print("This is the point position: ")
-                print(self.i)
-                #print("This is the position:")
-                #print(self.x_g)
-                #print(self.y_g)
-                #print("This is the point: ")
-                #print(self.path_point[0])
-                #print(self.path_point[2])
-
-                v = ka
-                omega = 3*kp*angle_error
-                
+                    #self.left_encoder_ticks += self.left_encoder_ticks_delta
+                    #self.right_encoder_ticks += self.right_encoder_ticks_delta
+                    #self.left_encoder_ticks_delta = 0
+                    #self.right_encoder_ticks_delta = 0
 
 
 
-                #v = 0.7
-                #omega = 4
 
-                # Initialize car control msg, add header from input message
+                    self.angle = self.ang #+ np.pi/2
+                    
+                    #target_angle = np.arctan2(path_point[0]-self.x, path_point[2] - self.y)
+                    target_angle = np.arctan2(self.path_point[2] - self.y_g, self.path_point[0] - self.x_g)
+                    print("INTERSECTION!")
+                    msg = BoolStamped()
+                    msg.data = True
+                    self.pub_flag_int.publish(msg)
+
+                    print("This is the target_angle" + str(target_angle))
+                    if target_angle < 0:
+                        if target_angle < -np.pi/2:
+                            target_angle = 2*np.pi + target_angle
+                        angle_error = target_angle - self.angle
+                        
+                        if angle_error < -np.pi:
+                            target_angle = 2*np.pi + target_angle
+                    
+                    angle_error = target_angle - self.angle
+
+                    
+                    
+                    #if target_angle >= 0:
+                    #    if (self.angle - np.pi) > target_angle:
+                    #        angle_error = 2*np.pi - self.angle + target_angle
+
+
+                    #if self.path_point[2] > self.y_g or self.path_point[0] < self.x_g:
+                    if self.path_point[2] == self.path_points[self.i-3][2] or self.path_point[0] == self.path_points[self.i-3][0]:
+                        v = 0.4
+                        omega = 0.0
+                    elif angle_error >= 0:
+                        # Left
+                        ka = 0.6
+                        kp = 0.9 #0.45
+                        print("LEFT: " + str(self.y_g) + ", " + str(self.x_g))
+                        print("This is angle_error: " + str(angle_error))
+                        omega = 2.0
+                    else:
+                        ka = 0.2 #0.3
+                        kp = 1.1 #3.1
+                        print("RIGHT: " + str(self.y_g) + ", " + str(self.x_g))
+                        print("This is angle_error: " + str(angle_error))
+                        omega = -3.5
+                    
+                    print("This is the point position: ")
+                    print(self.i)
+                    #print("This is the position:")
+                    #print(self.x_g)
+                    #print(self.y_g)
+                    #print("This is the point: ")
+                    #print(self.path_point[0])
+                    #print(self.path_point[2])
+
+                    v = ka
+                    #omega = 3*kp*angle_error
+                    
+                    print("This is the speed in the turn:")
+                    print(str(omega))
+
+
+
+                    #v = 0.7
+                    #omega = 4
+
+                    # Initialize car control msg, add header from input message
+                    car_control_msg = Twist2DStamped()
+                    car_control_msg.header = pose_msg.header
+                    car_control_msg.v = v
+                    car_control_msg.omega = omega
+
+                    self.publishCmd(car_control_msg)
+                    time.sleep(2.4)
+
+                    #car_control_msg.v = 0
+                    #car_control_msg.omega = 0
+
+                    #self.publishCmd(car_control_msg)
+                    #time.sleep(5)
+                    self.time_end = time.time()
+            else:
+                self.i = self.i + 1
+                v = 0
+                omega = 0
+
                 car_control_msg = Twist2DStamped()
                 car_control_msg.header = pose_msg.header
                 car_control_msg.v = v
                 car_control_msg.omega = omega
 
                 self.publishCmd(car_control_msg)
-                time.sleep(2.4)
-
-                #car_control_msg.v = 0
-                #car_control_msg.omega = 0
-
-                #self.publishCmd(car_control_msg)
-                #time.sleep(5)
-                self.time_end = time.time()
-
 
 
         
