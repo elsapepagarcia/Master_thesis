@@ -10,6 +10,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 neural_astar = NeuralAstar(encoder_arch='CNN').to(device)
 neural_astar.load_state_dict(load_from_ptl_checkpoint("./model/mazes_032_moore_c8/lightning_logs/"))
+print("HERE")
 
 vanilla_astar = VanillaAstar().to(device)
 
