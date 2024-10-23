@@ -9,9 +9,9 @@ import os
 import hydra
 import pytorch_lightning as pl
 import torch
-from neural_astar.planner import NeuralAstar
-from neural_astar.utils.data import create_dataloader
-from neural_astar.utils.training import PlannerModule, set_global_seeds
+from src.neural_astar.planner import NeuralAstar
+from src.neural_astar.utils.data import create_dataloader
+from src.neural_astar.utils.training import PlannerModule, set_global_seeds
 from pytorch_lightning.callbacks import ModelCheckpoint
 
 

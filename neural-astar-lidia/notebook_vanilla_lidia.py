@@ -18,14 +18,14 @@ vanilla_astar = VanillaAstar().to(device)
 #end = 20 + (22*15)
 
 #FOR SUPER DENSE CIRCUIT
-start = 24
-end = 36
+#start = 24
+#end = 36
 
 num_rows = 5
 num_cols = 3
 
-#start = 3
-#end = 11
+start = 3
+end = 11
 
 start_idx = (start // num_cols, start % num_cols)
 end_idx = (end // num_cols, end % num_cols)
@@ -35,8 +35,8 @@ end_idx = (end // num_cols, end % num_cols)
 #end = 3 + (5*3)
 
 #dataloader = create_dataloader("./adj_matrix.npz", 0, 8)
-dataloader = create_dataloader("./super_dense_circuit.npz", start, end)
-#dataloader = create_dataloader("./our_environment.npz", start, end)
+#dataloader = create_dataloader("./super_dense_circuit.npz", start, end)
+dataloader = create_dataloader("./our_environment.npz", start, end)
 #dataloader = create_dataloader("./our_basic_circuit.npz", start, end)
 map_designs, start_maps, goal_maps = next(iter(dataloader))
 #print("Hola")

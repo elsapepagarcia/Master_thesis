@@ -145,7 +145,6 @@ class NeuralAstar(VanillaAstar):
         self.encoder_input = encoder_input
         encoder_arch = getattr(encoder, encoder_arch)
         self.encoder = encoder_arch(len(self.encoder_input), encoder_depth, const)
-        print(self.encoder)
         self.learn_obstacles = learn_obstacles
         if self.learn_obstacles:
             print("WARNING: learn_obstacles has been set to True")
