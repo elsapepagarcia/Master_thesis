@@ -1,5 +1,17 @@
 # Master_thesis
 
+## Final_fusion
+This is the final goal of the thesis. It is basically the Lane Following demo adapted for detecting the intersections and decide when to turn or not depending on the planned path with Neural A*. Some important nodes in order to understand the basic concept of how the code works:
+  - Lane_controller_node.py:
+    -> Line 234: It specified the folder where we have the training weights.
+    -> Line 212: It specifies the architecture that is being used in the Neural Network.It is the default one in the Neural A* repository.
+    -> Line 245-249: It specifies the size of the environment and the start and ending point as an index, not as a coordinate.
+    -> Line 572-579: It calculates different paramenters, as distance to the current goal and different angles and when the robot is close to the current goal.
+    -> Line 642-664: It is where it decides to turn or to go straight when an intersection is detected.
+  - Lane_filter_node.py:
+    -> Line 233-266: The position of the robot is calculated based on the wheel encoders.
+
+
 ## neural_astar
 Here, you can run notebook_vanilla_lidia.py in order to plan the path on circuit "super_dense_circuit.npz" for going from the given start point to the given goal point (given in notebook_vanilla_lidia.py file). The path is predicted using A* and Neural A* algorithms. The original version of this repository is at https://github.com/omron-sinicx/neural-astar.
 
