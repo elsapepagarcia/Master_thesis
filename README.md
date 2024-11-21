@@ -9,7 +9,12 @@ This is the final goal of the thesis. It is basically the Lane Following demo ad
     -   Line 572-579: It calculates different paramenters, as distance to the current goal and different angles and when the robot is close to the current goal.
     -   Line 642-664: It is where it decides to turn or to go straight when an intersection is detected.
   - Lane_filter_node.py:
-    -> Line 233-266: The position of the robot is calculated based on the wheel encoders.
+    - Line 233-266: The position of the robot is calculated based on the wheel encoders.
+  - Stop_line_filter_node.py: It is in charge of detecting the red lines, the intersection lines.
+  - When we run the program in the robot, we can see in the command window (after some time waiting) the displayed matrix of the prediction of the path in the given environment. In order to execute the code, it is necessary to copy everything that run from this folder the following commands:
+    -   dts devel build -f -H duckie1 (name  of the robot)
+    -   dts devel run -L lane_following -H duckie1 (name of the robot)
+    It will be important to have opened dts duckiebot keyboard_control duckie1 (name of the robot) virtual keyboard and press "a" in the keyboard for the robot to begin to move.
 
 
 ## neural_astar
