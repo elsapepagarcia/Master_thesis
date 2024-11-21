@@ -58,4 +58,7 @@ This folder is not accesable, as it is basically a clone repository in order to 
 This is just a summary of all the powerpoint presentations I developed during the thesis in order to track my work.
 
 ## state-estimation
-Here we track the yellow and white lines. We can see them in the simulation and with the ground_projection node we can see the relation of the duckiebot respect to the lines that it observes. Also, we tried to mix state-estimation with obtaining the odometry. For the simulation it worked, but for the real life the robot is not doing the line following (future problem to check why this happens) and if we move the robot manually, the wheels encoders error is pretty big.
+Here we can obtain the coordinates calculated with the wheels encoders while moving the robot manually. In order to make it work we need to run "dts code workbench --duckiebot duckie1" (name of the robot).
+
+## videos_and_photos
+Here I just attach some videos of some real life tests
