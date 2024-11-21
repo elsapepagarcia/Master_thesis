@@ -1,4 +1,5 @@
 # Master_thesis
+Small remark for all these projects: the wheels encoders are not at cero once some program has been runned in it and moved. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
 
 ## Final_fusion
 This is the final goal of the thesis. It is basically the Lane Following demo adapted for detecting the intersections and decide when to turn or not depending on the planned path with Neural A*. Some important nodes in order to understand the basic concept of how the code works:
@@ -14,8 +15,11 @@ This is the final goal of the thesis. It is basically the Lane Following demo ad
   - When we run the program in the robot, we can see in the command window (after some time waiting) the displayed matrix of the prediction of the path in the given environment. In order to execute the code, it is necessary to copy everything that run from this folder the following commands:
     -   dts devel build -f -H duckie1 (name  of the robot)
     -   dts devel run -L lane_following -H duckie1 (name of the robot)
-    It will be important to have opened dts duckiebot keyboard_control duckie1 (name of the robot) virtual keyboard and press "a" in the keyboard for the robot to begin to move.
+    It will be important to have opened "dts duckiebot keyboard_control duckie1" (name of the robot) virtual keyboard and press "a" in the keyboard for the robot to begin to move.
 
+## follow_coordinates
+In this project, we wanted to make the robot move on a square in an empty domain. So, assuming the robot is initially positioned at coordinate (0,0), we wanted it to go from here to (0, 1), (1, 1) and (1, 0). In order to track the coordinates of the robot we used the wheels encoders. We realised they are not really accurate and the results depend on the surface where the robot is moving or the calibration of the wheels among other factors. To run the code we must execute command "dts code workbench --duckiebot duckie1" (name of the robot) from the folder state-estimation. A couple of remarks:
+  - State-estimation is an exercise project from the Duckietown-lx repository (https://github.com/duckietown/duckietown-lx). Despite of not really using any output of this exercise, we took the project as a base to modify it and achieve our results. Another important remark is that, once we have run the command to run the code in the robot, we need also to open the Virtual Joystick window with "dts duckiebot keyboard_control duckie1" and move the robot a bit to move the wheels so that the encoders are not exactly at cero. After doing this, we should close this virtual keyboard window and the robot will begin moving.
 
 ## neural_astar
 Here, you can run notebook_vanilla_lidia.py in order to plan the path on circuit "super_dense_circuit.npz" for going from the given start point to the given goal point (given in notebook_vanilla_lidia.py file). The path is predicted using A* and Neural A* algorithms. The original version of this repository is at https://github.com/omron-sinicx/neural-astar.
