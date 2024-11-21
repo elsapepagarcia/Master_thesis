@@ -35,25 +35,24 @@ The given path is the one described in red in photo path_comparison.png.
 
 ## line_following_with_coordinates
 This project is the simple Duckietown Lane Following Demo with a modification in order to track the position of the robot. In order to make it run, it is just necessary to run the normal lane following demo and, in the command window we'll see the coordinates displayed:
-    -   dts devel build -f -H duckie1 (name  of the robot)
-    -   dts devel run -L lane_following -H duckie1 (name of the robot) 
+  - dts devel build -f -H duckie1 (name  of the robot)
+  - dts devel run -L lane_following -H duckie1 (name of the robot) 
 
 ## my-ros-project
 This is the first ros project I created following the documentation of "Duckietown". I created the node "twist_control_node.py" to access the wheel encoders and publish different linear and angular speed values to move the robot towards the objective. It is linked with the odometry_activity_given_speed.py" file, also saved in the same directory (./packages/my_package/src/twist_control_node.py). If we move the robot manually with the virtual Joystick, we can see displayed in the command window the calculated position with the IMU and with the wheels encoders. With the IMU we reached the conclusion that there is a lot of noise and it is not calculating it properly. The commands to make it run are:
-dts devel build -f -H <name-of-the-robot>
-
-dts devel run -L twist-control -H <name-of-the-robot> 
+  - dts devel build -f -H <name-of-the-robot>
+  - dts devel run -L twist-control -H <name-of-the-robot> 
 
 ## neural-astar-lidia
 In this project we will select a virtual environment (we can generate it randomly in neural_astar/map-utils or manually by using the file in our_basic_circuit/our_environment_zip.py). In folder  generated_maps we have different environments in shape of adjacent matrices and some folders with some images of these environments and its predictions for testing different architectures. In folder model/mazes_032..../version_X, we'll have the trained weights of the model we are working with. If we want to test a different model, the weights for other models that we have trained are stored in folder "my_training". We should copy the desired weights from here into the model/mazes_blablabla folder when wanting to use them for testing this model. Before testing, we need to specify the model that we used for training in line 62 of files 'encoder.py' of folders 'src/neural_astar/planner' and 'src/neural_astar/utils'. One this is done we will run the program my running:
-- python notebook_vanilla_lidia.py
+  - python notebook_vanilla_lidia.py
 It will first display the architecture that we are using and, then, it will ask you to give the name of the environment you want to load form generated_maps folder. Next, it will ask you for the coordinates of the initial and ending point of the path we want to plan (top-left corner of the images will be coordinate (0, 0)). Finally, it will show you an image of the environment and the selected start and ending points. Then, it will display the predicted path. In the comand window we will see the path represented with coordinates, being (0,0) the starting point. Each tile will be separated by a distance of 0.59 meters. 
 
 The original project that we took to develop out program is at https://github.com/omron-sinicx/neural-astar.
 
 ## neural_astar/map-utils
 This folder is not accesable, as it is basically a clone repository in order to generate the environment where we will perform the path planning algorithm. In order to learn how to use it, check the repository documentation at https://github.com/duckietown/map-utils). Out .npz circuits are an adjacent matrix that repesents the environment. This repository also generates a .yaml file, that will be use to render the environment in Gym-Duckietown simulation (https://github.com/duckietown/gym-duckietown). The proper command to create an environment will be:
-- python ./generator.py --height 13 --width 13 --map-density "medium" --matrix-output, where we are specifying the dimensions of it and the density.
+  - python ./generator.py --height 13 --width 13 --map-density "medium" --matrix-output, where we are specifying the dimensions of it and the density.
 
 ## powerpoint_presentations
 This is just a summary of all the powerpoint presentations I developed during the thesis in order to track my work.
