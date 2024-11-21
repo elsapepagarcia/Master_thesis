@@ -29,8 +29,8 @@ This is an edition of the demo "Indefinite_navigation" whose code we can find at
 
 ## intersection_turning
 This is a previous step to the Final_fusion project. In here, the path is not planned, but we give an array of coordinates, as if it was the planned path, and then the robot goes through these. In order to run it, we should execute the code the same way as for Final_fusion, so, 
-    -   dts devel build -f -H duckie1 (name  of the robot)
-    -   dts devel run -L lane_following -H duckie1 (name of the robot) 
+    - dts devel build -f -H duckie1 (name  of the robot)
+    - dts devel run -L lane_following -H duckie1 (name of the robot) 
 The given path is the one described in red in photo path_comparison.png.
 
 ## line_following_with_coordinates
