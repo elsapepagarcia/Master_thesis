@@ -31,11 +31,11 @@ def visualize_results(
         histories = planner_outputs.histories
         paths = planner_outputs.paths
     
-    print("Here the path:")
-    print(paths)
+    #print("Here the path:")
+    #print(paths)
     an_array = paths.cpu().numpy()
     an_array = np.squeeze(an_array)
-    print(an_array)
+    #print(an_array)
     
         
     # Define the grid cell size in meters (59 cm)
@@ -89,8 +89,8 @@ def visualize_results(
 
 def create_dataloader(
     filename: str,
-    start_idx: int, 
-    goal_idx: int
+    start_idx: list, 
+    goal_idx: list
 ) -> data.DataLoader:
     """
     Create dataloader from npz file
@@ -116,8 +116,8 @@ class MazeDataset(data.Dataset):
     def __init__(
         self,
         filename: str,
-	start_idx: int, 
-	goal_idx: int
+	start_idx: list, 
+	goal_idx: list
     ):
         """
         Custom dataset for shortest path problems
@@ -143,13 +143,19 @@ class MazeDataset(data.Dataset):
             self.goal_map
         ) = self._process(filename, start_idx, goal_idx)
 
-    def _process(self, filename: str, start_idx: int, goal_idx: int):
+    def _process(self, filename: str, start_idx: list, goal_idx: list):
         with np.load(filename) as f:
             with np.load(filename) as f:
                 adj_map = f["out"]
                 dims = f["dims"]
             	# adjust adj_map
                 map = np.zeros(dims)
+                
+                
+                # Calculate the linear index
+                start_idx = start_idx[1] * dims[0] + start_idx[0]
+                # Calculate the linear index
+                goal_idx = goal_idx[1] * dims[0] + goal_idx[0]
                 
                 for i in range(adj_map.shape[0]):
                     for j in range(adj_map.shape[1]):

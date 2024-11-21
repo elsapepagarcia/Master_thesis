@@ -60,6 +60,8 @@ class Unet(EncoderBase):
 class CNN(EncoderBase):
 
     CHANNELS = [32, 64, 128, 256]
+    #CHANNELS = [16, 32, 64, 128]
+    #CHANNELS = [16, 32]
 
     def construct_encoder(self, input_dim: int, encoder_depth: int) -> nn.Module:
         """

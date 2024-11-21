@@ -252,9 +252,10 @@ class TwistControlNode(DTROS):
                                 self.x += self.vx*time_step
                                 self.y += self.vy*time_step
                                 #msg_sub = f"Position: {self.x}, {self.y}"
-                                msg_sub = f"Position: {X}, {Y}"
+                                msg_sub = f"Position with wheels encoders: {X}, {Y}"
                                 rospy.loginfo(msg_sub)
-                                #rospy.loginfo(msg_sub)
+                                msg_sub = f"Position calculated with IMU: {self.x}, {self.y}"
+                                rospy.loginfo(msg_sub)
                 
             self._ticks_left_prev = self._ticks_left
             self._ticks_right_prev = self._ticks_right
