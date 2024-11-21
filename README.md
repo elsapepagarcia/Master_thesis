@@ -1,5 +1,5 @@
 # Master_thesis
-Small remark for all these projects: the wheels encoders are not at cero once some program has been runned in it and moved. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
+Small remark for all these projects: the wheels encoders are not at cero once some program have been runned in the robot and it moved. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
 
 ## Final_fusion
 This is the final goal of the thesis. It is basically the Lane Following demo adapted for detecting the intersections and decide when to turn or not depending on the planned path with Neural A*. Some important nodes in order to understand the basic concept of how the code works:
@@ -24,6 +24,26 @@ In this project, we wanted to make the robot move on a square in an empty domain
 ## gym-duckietown
 This folder is the one that has the files needed to run the gym-duckietown simulation. It is a clone of the repository https://github.com/duckietown/gym-duckietown. We created a new file, path-planning.py that runs the duckiebot in the simulation autonomously from one point to another of a given array of points saved at path_points in this file. It is designed for the --map-name "small_loop", that is the one that we currently have in the lab at university. We just need to execute the command './path_planning.py --env-name Duckietown-udem1-v0 --map-name "small_loop"' to make it run. 
 
+## indefinite_navigation
+This is an edition of the demo "Indefinite_navigation" whose code we can find at dt-core/packages/duckietown_demos in https://github.com/duckietown/dt-core/tree/daffy/packages. It is an old project developed for the Raspberry PI Duckiebots. We can read the small documentation in this link: https://docs-old.duckietown.org/daffy/opmanual_duckiebot/out/demo_indefinite_navigation.html. However, if we try to clone dt-core and run it as we would run the lane_following demo: dts devel build -f -H duckie1      and      dts devel run -L indefinite_navigation (or lane_following) -H duckie1, this does not work directly. Here, we have fixed the compatibility problems but still is not running as fully expected. When we place the duckiebot in the circuit with the ArUco codes as they should, these are detected and sometimes the robot is able to randomly select if turning or continuing straight, but other times it fails or stops. With a bit more of time invested, this code could be easily fixed and modified to work properly with these intersections. While working on this code we learnt how, later on, to deal with the intersections in our problem. 
+
+## intersection_turning
+This is a previous step to the Final_fusion project. In here, the path is not planned, but we give an array of coordinates, as if it was the planned path, and then the robot goes through these. In order to run it, we should execute the code the same way as for Final_fusion, so, 
+    -   dts devel build -f -H duckie1 (name  of the robot)
+    -   dts devel run -L lane_following -H duckie1 (name of the robot) 
+The given path is the one described in red in photo path_comparison.png.
+
+## line_following_with_coordinates
+This project is the simple Duckietown Lane Following Demo with a modification in order to track the position of the robot. In order to make it run, it is just necessary to run the normal lane following demo and, in the command window we'll see the coordinates displayed:
+    -   dts devel build -f -H duckie1 (name  of the robot)
+    -   dts devel run -L lane_following -H duckie1 (name of the robot) 
+
+## my-ros-project
+This is the first ros project I created following the documentation of "Duckietown". I created the node "twist_control_node.py" to access the wheel encoders and publish different linear and angular speed values to move the robot towards the objective. It is linked with the odometry_activity_given_speed.py" file, also saved in the same directory (./packages/my_package/src/twist_control_node.py). If we move the robot manually with the virtual Joystick, we can see displayed in the command window the calculated position with the IMU and with the wheels encoders. With the IMU we reached the conclusion that there is a lot of noise and it is not calculating it properly. The commands to make it run are:
+dts devel build -f -H <name-of-the-robot>
+
+dts devel run -L twist-control -H <name-of-the-robot> 
+
 ## neural-astar-lidia
 In this project we will select a virtual environment (we can generate it randomly in neural_astar/map-utils or manually by using the file in our_basic_circuit/our_environment_zip.py). In folder  generated_maps we have different environments in shape of adjacent matrices and some folders with some images of these environments and its predictions for testing different architectures. In folder model/mazes_032..../version_X, we'll have the trained weights of the model we are working with. If we want to test a different model, the weights for other models that we have trained are stored in folder "my_training". We should copy the desired weights from here into the model/mazes_blablabla folder when wanting to use them for testing this model. Before testing, we need to specify the model that we used for training in line 62 of files 'encoder.py' of folders 'src/neural_astar/planner' and 'src/neural_astar/utils'. One this is done we will run the program my running:
 - python notebook_vanilla_lidia.py
@@ -35,20 +55,8 @@ The original project that we took to develop out program is at https://github.co
 This folder is not accesable, as it is basically a clone repository in order to generate the environment where we will perform the path planning algorithm. In order to learn how to use it, check the repository documentation at https://github.com/duckietown/map-utils). Out .npz circuits are an adjacent matrix that repesents the environment. This repository also generates a .yaml file, that will be use to render the environment in Gym-Duckietown simulation (https://github.com/duckietown/gym-duckietown). The proper command to create an environment will be:
 - python ./generator.py --height 13 --width 13 --map-density "medium" --matrix-output, where we are specifying the dimensions of it and the density.
 
-## indefinite_navigation
-This is an edition of the demo "Indefinite_navigation" whose code we can find at dt-core/packages/duckietown_demos in https://github.com/duckietown/dt-core/tree/daffy/packages. It is an old project developed for the Raspberry PI Duckiebots. We can read the small documentation in this link: https://docs-old.duckietown.org/daffy/opmanual_duckiebot/out/demo_indefinite_navigation.html. However, if we try to clone dt-core and run it as we would run the lane_following demo: dts devel build -f -H duckie1      and      dts devel run -L indefinite_navigation (or lane_following) -H duckie1, this does not work directly. Here, we have fixed the compatibility problems but still is not running as fully expected. When we place the duckiebot in the circuit with the ArUco codes as they should, these are detected and sometimes the robot is able to randomly select if turning or continuing straight, but other times it fails or stops. With a bit more of time invested, this code could be easily fixed and modified to work properly with these intersections. While working on this code we learnt how, later on, to deal with the intersections in our problem. 
-
-## intersection_turning
-This is a previous step to the Final_fusion project. In here, the path is not planned, but we give an array of coordinates, as if it was the planned path, and then the robot goes through these. In order to run it, we should execute the code the same way as for Final_fusion, so, 
-    -   dts devel build -f -H duckie1 (name  of the robot)
-    -   dts devel run -L lane_following -H duckie1 (name of the robot) 
-The given path is the one described in red in photo path_comparison.png.
-
-## my-ros-project
-This is the first ros project I created following the documentation of "Duckietown". I created the node "twist_control_node.py" to access the wheel encoders and publish different linear and angular speed values to move the robot towards the objective. It is linked with the odometry_activity_given_speed.py" file, also saved in the same directory (./packages/my_package/src/twist_control_node.py). Currently it is not working as expected, as the displayed coordinates when moving in the room don't correspond to the real ones and the predicted speed it is not computed correctly. The commands to make it run are:
-dts devel build -H <name-of-the-robot> -f
-
-dts devel run -H <name-of-the-robot> -L twist-control
+## powerpoint_presentations
+This is just a summary of all the powerpoint presentations I developed during the thesis in order to track my work.
 
 ## state-estimation
 Here we track the yellow and white lines. We can see them in the simulation and with the ground_projection node we can see the relation of the duckiebot respect to the lines that it observes. Also, we tried to mix state-estimation with obtaining the odometry. For the simulation it worked, but for the real life the robot is not doing the line following (future problem to check why this happens) and if we move the robot manually, the wheels encoders error is pretty big.
