@@ -1,6 +1,8 @@
 # Master_thesis
 Small remark for all these projects: the wheels encoders are not at cero once some program have been runned in the robot and it moved. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
 
+For the graphs of the position of the robot in the environment, there are the files "remove_rubish.py" and "text_to_python.py" in folders "follow_coordinates", "Final_fusion", "my-ros-project" and "state-estimation". In order to use them, we first save everything that the comand window is printing while moving the robot around. Then, with the file "remove_rubish.py" we clean every information that is not the calculated robot position. Finally, with the "text_to_python.py" file we transform the data to python and create the plot.
+
 ## Final_fusion
 This is the final goal of the thesis. It is basically the Lane Following demo adapted for detecting the intersections and decide when to turn or not depending on the planned path with Neural A*. Some important nodes in order to understand the basic concept of how the code works:
   - Lane_controller_node.py:
