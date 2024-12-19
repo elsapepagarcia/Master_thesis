@@ -1,5 +1,7 @@
 # Master_thesis
-Small remark for all these projects: the wheels encoders are not at cero once some program have been runned in the robot and it moved. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
+Here an explanation in detail into all the folders that form this project.
+
+"Small remark for all these folders": the wheels encoders of the robot are not at cero once it was started and moved the wheels. If we run another program without first switching off the robot, the calculated initial coordinates won't be (0,0) but another value. This problem can be a future work to improve he working flow.
 
 For the graphs of the position of the robot in the environment, there are the files "remove_rubish.py" and "text_to_python.py" in folders "follow_coordinates", "Final_fusion", "my-ros-project" and "state-estimation". In order to use them, we first save everything that the comand window is printing while moving the robot around. Then, with the file "remove_rubish.py" we clean every information that is not the calculated robot position. Finally, with the "text_to_python.py" file we transform the data to python and create the plot.
 
